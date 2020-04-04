@@ -1,0 +1,78 @@
+.cards{
+  
+  display: inline-block;
+  text-align: center;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  margin: 20px 20px;
+  text-align: center;
+  font-family: arial;
+  padding: 30px;
+  border: 2px solid #ff6804;
+}
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+
+input[type=submit] {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #ff6804;
+  padding: 20px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 45px;
+}
+
+table{
+  text-align: left;
+}
+
+.remove span{
+  color: red;
+  font-size: large;
+  -webkit-text-stroke: medium;
+   
+}
+.remove {
+  text-decoration: none;
+}
+
+th {
+ font-size: larger;
+}
+
+
+.total p{
+  font-size: x-large;
+  font-weight: bolder; 
+}
+.blank_row
+{
+    height: 30px !important; 
+    background-color: #FFFFFF;
+}
+h3 {
+  font-size: xx-large;
+}
+
+.less{
+  text-align: left;
+}
+
+.more{
+  text-align: right;
+}
+
+.qty{
+  text-align: center;
+}

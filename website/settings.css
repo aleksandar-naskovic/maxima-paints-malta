@@ -1,0 +1,72 @@
+.page{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px 120px;
+  text-align: center;
+}
+button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #ff6804;
+  padding: 20px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 45px;
+}
+
+.FlexContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start ;
+  align-items: center;
+}
+
+.FlexContainer_up {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start ;
+  align-items: flex-start;
+}
+
+.col-25 {
+  display: inline-block;
+  width: 20%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.col-75 {
+  display: inline-block;
+  text-align: left;
+  width: 70%;
+
+}
+
+#vat_value{
+  width: 70px;
+}
+
+.underline{
+  margin-top: 50px;
+  text-align: left;
+  border-bottom: 1px black solid;
+}
+
+input[type=text], input[type=date], input[type=password], input[type=email], select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+input[type=checkbox]{
+  transform: scale(1.5);
+}
+
+input[type=text]{
+  width: 70%;
+}

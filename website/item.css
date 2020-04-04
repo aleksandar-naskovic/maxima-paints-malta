@@ -1,0 +1,204 @@
+body {
+  margin-bottom: 100px;
+}
+
+.item_header { 
+  display: block;
+  text-align: center;
+  font-size: 20;
+}
+  
+.item_container {
+  margin: auto;
+  margin-top: 50px;
+  padding: 40px;
+  background-image: url(../images/b_item.jpg);
+  background-size: cover;
+
+  position: relative;
+  width: 850px;
+}
+
+.item_photo {
+  display: block;
+  width: 400px;
+  float: left;
+  margin: auto;
+}
+
+.main_description{
+  display: block;
+  width: 400px;
+  margin: auto;
+  margin-left: 10px;
+  float: left;
+  text-align: left;
+}
+
+.item_container img {
+  height: 350px;
+  width: 350px;
+  margin: 20px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.item_details {
+  display: block;
+  width: 350px;
+  float: left;
+  padding: 50px;
+}
+
+#item_name {
+  text-align: center;
+  font-size: 200%;
+}
+
+.btn {
+  font-family: "Gilroy","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  height: 46px;
+  width: 100%;
+  line-height: 44px;
+  background-color: orangered;
+  border-width: 0;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: .3s;
+  cursor: pointer;
+  
+  margin:auto;
+  margin-top: 20px;
+  display:block;
+}
+
+.btn:hover {
+  background-color: rgb(223, 62, 3);
+}
+
+
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+
+.item_description {
+  float: left;
+  display: block;
+}
+
+.fieldset {
+  text-align: left;
+  margin: auto;
+}
+
+.quantity {
+            margin: auto;
+          }
+.qtyinput {
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+
+            font-size: 30px;
+            width: 90px;
+            border-style: ridge;
+            border-radius: 5px;
+            text-align: center;
+            outline: none;
+            font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+          }
+
+.price{
+  display: inline-block;
+  margin: none;
+}
+
+.pricetext, .sizetext {
+  font-size: 40px;
+  margin: auto;
+}
+
+.vat{
+  display: inline-block;
+  margin: none;
+}
+
+.vat_text {
+  font-size: 20px;
+  margin: auto;
+}
+
+.stock{
+  font-size: 20px;
+  margin: auto;
+  margin-left: 5px;
+}
+
+p {
+  margin: auto;
+}
+
+.underline {
+  border-bottom: 1px solid gray;
+}
+
+.discounttext{
+  font-size: 35px;
+  margin: auto;
+  color: red;
+  font-weight: 500;
+}
+
+.discountlabel{
+  margin-top: 5px;
+  color: red;
+  font-weight: 600;
+}
+
+.sizelabel{
+  margin-top: 10px;
+}
+
+.quantitylabel{
+  margin-top: 10px;
+}
+
+.admin_link{
+  font-size: 20px;
+  color: red;
+  font-weight: 800;
+  margin-right: 40px;
+  text-decoration: none;
+ 
+}
+
+.category_link{
+  font-size: 20px;
+  color: red;
+  font-weight: 800;
+  margin-right: 40px;
+  text-decoration: none;
+ 
+}
+
+.volume_button{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-top: 5px;
+}

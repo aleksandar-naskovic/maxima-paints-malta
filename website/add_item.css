@@ -1,0 +1,17 @@
+.page{
+  padding: 60px 120px;
+  text-align: center;
+}
+button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #ff6804;
+  padding: 20px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 45px;
+}

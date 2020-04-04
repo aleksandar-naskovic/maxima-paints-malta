@@ -1,0 +1,104 @@
+body {
+  margin-bottom: 100px;
+}
+
+.item_header { 
+  display: block;
+  text-align: center;
+  font-size: 20;
+}
+  
+.item_container {
+  margin: auto;
+  margin-top: 50px;
+  padding: 40px;
+  padding-top: ;
+
+
+  background-image: url(../images/b_item.jpg);
+  background-size: cover;
+
+  position: relative;
+  width: 850px;
+}
+
+.item_photo {
+  display: block;
+  width: 400px;
+  float: left;
+  margin: auto;
+}
+
+.main_description{
+  display: block;
+  width: 400px;
+  margin: auto;
+  margin-left: 10px;
+  float: left;
+  text-align: left;
+}
+
+img {
+  height: 350px;
+  width: 350px;
+  margin: 20px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.item_details {
+  display: block;
+  width: 350px;
+  float: left;
+  padding: 50px;
+}
+
+#item_name {
+  text-align: center;
+  font-size: 200%;
+}
+
+
+.item_description {
+  float: left;
+  display: block;
+}
+
+.fieldset {
+  text-align: left;
+  margin: auto;
+}
+
+.price{
+  display: inline-block;
+  margin: none;
+}
+
+.pricetext, .sizetext {
+  font-size: 40px;
+  margin: auto;
+}
+p {
+  margin: auto;
+}
+
+.underline {
+  border-bottom: 1px solid gray;
+}
+
+.discounttext{
+  font-size: 30px;
+  margin: auto;
+  color: red;
+  font-weight: 500;
+}
+
+.discountlabel{
+  color: red;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.sizelabel{
+  margin-top: 30px;
+}

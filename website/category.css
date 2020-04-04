@@ -1,0 +1,86 @@
+.page{
+  text-align: center;
+  background-image: url(../images/b_sahara.jpg);
+  background-size: cover;
+}
+h2.headertext {
+  text-align: center;
+  text-transform: uppercase;
+}
+.card{
+  font-family: 'Lato', Arial, sans-serif;
+  font-size: 16px;
+  min-height: 520px;
+  max-height: 550px;
+  max-width: 380px;
+  min-width: 300px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  
+}
+button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color:red;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,600,700);
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  display: inline-block;
+  
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  padding: 2px 16px;
+}
+
+.admin_links{
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.admin_links p{
+  display: block;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.item_volume{
+  display: inline-block;
+  width: fit-content;
+  margin:auto;
+
+  font-size : 30px;
+  border: 3px solid #ffd900;
+  
+  padding: 2px 6px 2px;
+
+}
+
+.main_description{
+  text-align: left;
+}

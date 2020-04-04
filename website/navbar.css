@@ -1,0 +1,148 @@
+/* 
+=====
+Navbar styles
+=====
+*/  
+    .menu:hover .menu__link:not(:hover){
+      color: #241c69;
+    }
+    
+    .menu__list{
+      display: flex;  
+      text-align: center;
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      list-style: none;  
+      z-index: 2;
+      position: relative;
+    }
+    
+    .menu__group{
+      flex-grow: 1;
+      overflow: visible;
+    }
+    
+    .menu__link{
+      display: block;
+    }
+    ul li ul{
+      display: none;
+    }
+    ul li:hover ul{ 
+      display: block; 
+      position: absolute; 
+      background-color: #ff6804; 
+      color: #fff; 
+    }
+    ul li ul .item-2{
+      position: absolute; 
+      left: 90px; 
+      top: 0; 
+      display: none;}
+      
+      ul li ul li:hover .item-2{
+        display: block;}
+    /* skin */
+    
+    .menu{
+      background-color: #ff6804;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+      
+    }
+    
+    .menu__link{
+      padding: 2rem 1.5rem;
+    
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    
+    /* states */
+    .menu__link:focus{
+      outline: 2px solid #fff;
+    }
+    
+    /* hover animation */
+    
+    .menu__link{
+      position: relative;
+      overflow: hidden;
+      will-change: color;
+      transition: color .25s ease-out; 
+      z-index: 2;
+      position: relative; 
+    }
+    
+    .menu__link::before, 
+    .menu__link::after{
+      content: "";
+      width: 0;
+      height: 3px;
+      background-color: #fff;
+    
+      will-change: width;
+      transition: width .1s ease-out;
+    
+      position: absolute;
+      bottom: 0;
+    }
+    
+    .menu__link::before{
+      left: 50%;
+      transform: translateX(-50%); 
+    }
+    
+    .menu__link::after{
+      right: 50%;
+      transform: translateX(50%); 
+    }
+    
+    .menu__link:hover::before, 
+    .menu__link:hover::after{
+      width: 100%;
+      transition-duration: .2s;
+    }
+
+    /*
+================ LOGO   =============
+    */
+.logo{
+  background-color: white;
+  vertical-align: middle;
+  width: 100%;
+  display: inline-block;
+}
+
+.logo_img{
+  width: 90px;
+  height: 60px;
+}
+
+.logo_title{
+  color: #ff6804;
+  padding: 5rem 5.5rem;
+  font-weight: 1000;
+  font-size: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: auto;
+  padding: 10px;
+}
+
+.logo_links{
+font-weight: 800;
+color: #ff6804;
+text-decoration: none;
+margin: 10px 5px 0px;
+padding: 2px 4px 2px;
+border: 2px solid orangered;
+border-radius: 5px;
+float: right;
+}
+
+.logo_links:hover{
+  background-color: gainsboro;
+}
