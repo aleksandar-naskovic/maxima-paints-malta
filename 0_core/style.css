@@ -46,20 +46,12 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-button:hover{
-  background-color: gainsboro;
-}
+
 input[type=submit]:hover{
   background-color: gainsboro;
 }
 
-
-
-
-    
- 
-    
-    
-
-    
+.left{
+  text-align: left;
+}
 
