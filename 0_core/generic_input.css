@@ -4,7 +4,8 @@
   padding: 20px 120px;
   text-align: center;
 }
-button {
+
+.main_button {
   background-color: white; 
   color: black; 
   border: 2px solid #ff6804;
@@ -16,6 +17,27 @@ button {
   margin: 4px 2px;
   cursor: pointer;
   margin-top: 45px;
+}
+
+.button {
+  background-color: white; 
+  color: black; 
+  border: 1px solid #aaaaaa;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14);
+  border-radius: 2px;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+  margin: 15px;
+  cursor: pointer;
+  width: 20%;
+
+  display: flex;
+  align-items: left; 
+}
+
+.button:active{
+  background-color: gainsboro;
 }
 
 .FlexContainer {
