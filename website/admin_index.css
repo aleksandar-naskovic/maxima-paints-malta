@@ -1,44 +1,24 @@
 .page{
+  text-align: left;
+  padding: 100px;
+}
+h2 {
   text-align: center;
-  padding: 50px;
 }
 
-.options {
-  position: relative;
-  margin: auto;
-}
+
 
 .items, .users, .settings{
-  display: block;
-  float: left;
   margin: auto;
-  width: 340px;
-  height: 300px;
-  border-style: solid;
-  border-radius: 3px;
-  border-width: 2px;
-  border-color: white;
-  border-right-color: #ff6804;
-  margin-top: 30px;
-}
-.settings{
-  border: none;
-}
-button {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #ff6804;
-  width: 200px;
-  padding: 25px 50px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
-  cursor: pointer;
+  margin-top: 60px;
 }
 
-.buttons {
-margin-top: 30px;
-padding: 50px;
+.generic_button{
+  margin-right: 50px;
+  margin-top: 10px;
 }
+
+.underline {
+  margin-top: 50px;
+  text-align: left;
+  border-bottom: 1px black solid;
