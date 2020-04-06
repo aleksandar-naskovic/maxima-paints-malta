@@ -175,6 +175,52 @@ class Item_Class {
     //
     return TRUE;
   }
+  //
+  public function LoadItem($p_type, $p_value) {
+    global $db;
+    //
+    $query =
+    "SELECT item_id
+           ,item_name
+           ,item_category
+           ,item_volume
+           ,item_unit
+           ,item_price
+           ,item_disc10
+           ,item_stock
+           ,item_description
+           ,item_characteristic
+           ,item_how_to_use
+           ,item_add_info
+           ,item_for_interior
+           ,item_for_exterior
+           ,item_status
+      FROM items
+     WHERE $p_type = '$p_value'
+    ";
+    //
+    // Get data from the mySQL query
+    $v_db_row = mysqli_query($db, $query);
+    $v_db_structure = mysqli_fetch_array($v_db_row); 
+    //
+    $this->item_id              = $v_db_structure['item_id'];
+    $this->item_name            = $v_db_structure['item_name'];
+    $this->item_category        = $v_db_structure['item_category'];
+    $this->item_volume          = $v_db_structure['item_volume'];
+    $this->item_unit            = $v_db_structure['item_unit'];
+    $this->item_price           = $v_db_structure['item_price'];
+    $this->item_disc10          = $v_db_structure['item_disc10'];
+    $this->item_stock           = $v_db_structure['item_stock'];
+    $this->item_description     = $v_db_structure['item_description'];
+    $this->item_characteristic  = $v_db_structure['item_characteristic'];
+    $this->item_how_to_use      = $v_db_structure['item_how_to_use'];
+    $this->item_add_info        = $v_db_structure['item_add_info'];
+    $this->item_for_interior    = $v_db_structure['item_for_interior'];
+    $this->item_for_exterior    = $v_db_structure['item_for_exterior'];
+    $this->item_status          = $v_db_structure['item_status'];
+    //
+    return TRUE;
+  }
 
 }
 
