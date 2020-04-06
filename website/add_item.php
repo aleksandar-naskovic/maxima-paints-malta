@@ -80,6 +80,34 @@ $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
     // Insert the item in the database
     $s_Item->CreateItem();
     //
+      //Create item history
+      //
+      $s_item_history = new Item_History_Class();
+      //
+      $s_item_history->item_id               = $v_item_id;
+      $s_item_history->item_name             = mysqli_real_escape_string($db, $_POST['item_name']);
+      $s_item_history->item_category         = mysqli_real_escape_string($db, $_POST['item_category']);
+      $s_item_history->item_volume           = mysqli_real_escape_string($db, $_POST['item_volume']);
+      $s_item_history->item_unit             = mysqli_real_escape_string($db, $_POST['item_unit']);
+      $s_item_history->item_price            = mysqli_real_escape_string($db, number_format(round($_POST['item_price'],2),2));
+      $s_item_history->item_disc10           = mysqli_real_escape_string($db, number_format(round($_POST['item_disc10'],2),2));
+      //$s_item_history->item_stock            = mysqli_real_escape_string($db, $_POST['item_stock']);
+      $s_item_history->item_description      = mysqli_real_escape_string($db, $_POST['item_description']);
+      $s_item_history->item_characteristic   = mysqli_real_escape_string($db, $_POST['item_characteristic']);
+      $s_item_history->item_how_to_use       = mysqli_real_escape_string($db, $_POST['item_how_to_use']);
+      $s_item_history->item_add_info         = mysqli_real_escape_string($db, $_POST['item_add_info']);
+      if (!empty($_POST['item_for_interior'])) { $s_item_history->item_for_interior = '1'; } 
+      else { $s_item_history->item_for_interior = '0'; }
+      //
+      if (!empty($_POST['item_for_exterior'])) { $s_item_history->item_for_exterior = '1'; } 
+      else { $s_item_history->item_for_exterior = '0'; }
+      //$s_item_history->item_status           = mysqli_real_escape_string($db, $_POST['item_status']);
+      //$s_item_history->date                  = mysqli_real_escape_string($db, $_POST['item_for_exterior']);
+      $s_item_history->user                  = mysqli_real_escape_string($db, $_SESSION['username']);
+      //
+      $s_item_history->create_item_history();
+
+    //
     // Save the Image
     //
     if ($target_file == "../images/") {
