@@ -48,6 +48,7 @@ return TRUE;
 
 //
 if (isset($_POST["submit"])) {  
+  $s_item_history = new Item_History_Class();
   //check if item exist
   $v_item_name =             mysqli_real_escape_string($db, $_POST['item_name']);
   $v_item_volume =           mysqli_real_escape_string($db, $_POST['item_volume']);
@@ -77,6 +78,28 @@ if (isset($_POST["submit"])) {
               ,$v_item_interior
               ,$v_item_exterior
              );
+  //
+  //Create item history
+  //
+ $s_item_history->item_name             = mysqli_real_escape_string($db, $_POST['item_name']);
+ $s_item_history->item_category         = mysqli_real_escape_string($db, $_POST['item_category']);
+ $s_item_history->item_volume           = mysqli_real_escape_string($db, $_POST['item_volume']);
+ $s_item_history->item_unit             = mysqli_real_escape_string($db, $_POST['item_unit']);
+ $s_item_history->item_price            = mysqli_real_escape_string($db, number_format(round($_POST['item_price'],2),2));
+ $s_item_history->item_disc10           = mysqli_real_escape_string($db, number_format(round($_POST['item_disc10'],2),2));
+ //$s_item_history->item_stock            = mysqli_real_escape_string($db, $_POST['item_stock']);
+ $s_item_history->item_description      = mysqli_real_escape_string($db, $_POST['item_description']);
+ $s_item_history->item_characteristic   = mysqli_real_escape_string($db, $_POST['item_characteristic']);
+ $s_item_history->item_how_to_use       = mysqli_real_escape_string($db, $_POST['item_how_to_use']);
+ $s_item_history->item_add_info         = mysqli_real_escape_string($db, $_POST['item_add_info']);
+ $s_item_history->item_for_interior     = mysqli_real_escape_string($db, $_POST['item_for_interior']);
+ $s_item_history->item_for_exterior     = mysqli_real_escape_string($db, $_POST['item_for_exterior']);
+ //$s_item_history->item_status           = mysqli_real_escape_string($db, $_POST['item_status']);
+ //$s_item_history->date                  = mysqli_real_escape_string($db, $_POST['item_for_exterior']);
+ $s_item_history->user                  = mysqli_real_escape_string($db, $_SESSION['username']);
+
+ $s_item_history->create_item_history();
+
 
   header("Location: ../website/all_items.php");
 }
