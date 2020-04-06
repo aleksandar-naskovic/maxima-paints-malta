@@ -52,9 +52,9 @@ if (isset($_POST["submit"])) {
   //
   //header("Location: ../website/all_items.php");
   //
-  $s_item_history = new Item_History_Class();
+  
   //check if item exist
-  $v_item_name =             mysqli_real_escape_string($db, $_POST['item_name']);
+  /*$v_item_name =             mysqli_real_escape_string($db, $_POST['item_name']);
   $v_item_volume =           mysqli_real_escape_string($db, $_POST['item_volume']);
   $v_item_unit =             mysqli_real_escape_string($db, $_POST['item_unit']);
   $v_item_price =            mysqli_real_escape_string($db, number_format(round($_POST['item_price'],2),2));
@@ -65,31 +65,90 @@ if (isset($_POST["submit"])) {
   $v_item_how_to_use =       mysqli_real_escape_string($db, $_POST['item_how_to_use']);
   $v_item_additional_info =  mysqli_real_escape_string($db, $_POST['item_add_info']);
   $v_item_interior =         mysqli_real_escape_string($db, $_POST['item_for_interior']);
-  $v_item_exterior =         mysqli_real_escape_string($db, $_POST['item_for_exterior']);
+  $v_item_exterior =         mysqli_real_escape_string($db, $_POST['item_for_exterior']);*/
   //
   //Create item history
   //
-  $s_item_history->item_name             = mysqli_real_escape_string($db, $_POST['item_name']);
-  $s_item_history->item_category         = mysqli_real_escape_string($db, $_POST['item_category']);
-  $s_item_history->item_volume           = mysqli_real_escape_string($db, $_POST['item_volume']);
-  $s_item_history->item_unit             = mysqli_real_escape_string($db, $_POST['item_unit']);
-  $s_item_history->item_price            = mysqli_real_escape_string($db, number_format(round($_POST['item_price'],2),2));
-  $s_item_history->item_disc10           = mysqli_real_escape_string($db, number_format(round($_POST['item_disc10'],2),2));
-  //$s_item_history->item_stock            = mysqli_real_escape_string($db, $_POST['item_stock']);
-  $s_item_history->item_description      = mysqli_real_escape_string($db, $_POST['item_description']);
-  $s_item_history->item_characteristic   = mysqli_real_escape_string($db, $_POST['item_characteristic']);
-  $s_item_history->item_how_to_use       = mysqli_real_escape_string($db, $_POST['item_how_to_use']);
-  $s_item_history->item_add_info         = mysqli_real_escape_string($db, $_POST['item_add_info']);
-  $s_item_history->item_for_interior     = mysqli_real_escape_string($db, $_POST['item_for_interior']);
-  $s_item_history->item_for_exterior     = mysqli_real_escape_string($db, $_POST['item_for_exterior']);
-  //$s_item_history->item_status           = mysqli_real_escape_string($db, $_POST['item_status']);
-  //$s_item_history->date                  = mysqli_real_escape_string($db, $_POST['item_for_exterior']);
-  $s_item_history->user                  = mysqli_real_escape_string($db, $_SESSION['username']);
+  $s_item_history = new Item_History_Class();
+  $s_Item->LoadItem("item_id", $v_item_id);
+  //
+  $s_item_history->item_id = $v_item_id;
+  echo "[".$s_Item->item_name."] [".$_POST['post_item_name']."]";
+  echo strcmp($v_item_name, $_POST['post_item_name']);
+  //
+  //check if item name has changed
+  if(strcmp($v_item_name, $_POST['post_item_name']) <> 0){
+    $s_item_history->item_name = mysqli_real_escape_string($db, $_POST['post_item_name']);
+} 
+  //
+  //check if item category has changed
+  if(strcmp($v_item_category, $_POST['post_item_category']) <> 0){
+    $s_item_history->item_category = mysqli_real_escape_string($db, $_POST['post_item_category']);
+}
+  //
+  //check if item volume has changed
+  if(strcmp($v_item_volume, $_POST['post_item_volume']) == 0){
+    $s_item_history->item_volume = mysqli_real_escape_string($db, " ");
+    }
+  else $s_item_history->item_volume = mysqli_real_escape_string($db, $_POST['post_item_volume']);
+  echo "[".$v_item_volume."] [".$_POST['post_item_volume']."]";
+  //
+  //check if item unit has changed
+  if($s_Item->item_unit = $_POST['post_item_unit']){
+    $s_item_history->item_unit = mysqli_real_escape_string($db, " ");
+    }
+  else $s_item_history->item_unit = mysqli_real_escape_string($db, $_POST['post_item_unit']);
+
+  //
+  //check if item price has changed
+  if($s_Item->item_price = $_POST['post_item_price']){
+    $s_item_history->item_price = mysqli_real_escape_string($db, " ");
+    }
+  else $s_item_history->item_price = mysqli_real_escape_string($db, number_format(round($_POST['post_item_price'],2),2));
+  //
+  //check if item discount has changed
+  if($s_Item->item_disc10 = $_POST['post_item_disc10']){
+    $s_item_history->item_disc10 = mysqli_real_escape_string($db, " ");
+    } 
+  else $s_item_history->item_disc10 = mysqli_real_escape_string($db, number_format(round($_POST['post_item_disc10'],2),2));
+
+  //
+  //check if item desription has changed
+  if($s_Item->item_description = $_POST['post_item_description']){
+    $s_item_history->item_description = mysqli_real_escape_string($db, " ");
+    }
+  else $s_item_history->item_description = mysqli_real_escape_string($db, $_POST['post_item_description']);
+  //
+  //check if item characteristic has changed
+  if($s_Item->item_characteristic = $_POST['post_item_characteristic']){
+    $s_item_history->item_characteristic = mysqli_real_escape_string($db, " ");
+    }
+  else $s_item_history->item_characteristic = mysqli_real_escape_string($db, $_POST['post_item_characteristic']);
+  //
+  //check if item how_to_use has changed
+  if($s_Item->item_how_to_use = $_POST['post_item_how_to_use']){
+    $s_item_history->item_how_to_use = mysqli_real_escape_string($db, " ");
+    }
+  else $s_item_history->item_how_to_use = mysqli_real_escape_string($db, $_POST['post_item_how_to_use']);
+  //
+  //check if item_add_info has changed
+  if($s_Item->item_add_info = $_POST['post_item_add_info']){
+    $s_item_history->item_add_info = mysqli_real_escape_string($db, " ");
+    }
+  else $s_item_history->item_add_info = mysqli_real_escape_string($db, $_POST['post_item_add_info']);
+  if (!empty($_POST['post_item_for_interior'])) { $s_item_history->item_for_interior = '1'; } 
+  else { $s_item_history->item_for_interior = '0'; }
+  //
+  if (!empty($_POST['post_item_for_exterior'])) { $s_item_history->item_for_exterior = '1'; } 
+  else { $s_item_history->item_for_exterior = '0'; }
+  $s_item_history->user = mysqli_real_escape_string($db, $_SESSION['username']);
   //
   $s_item_history->create_item_history();
+
+  
   //
   //
-  header("Location: ../website/all_items.php");
+  //header("Location: ../website/all_items.php");
 }
 //
 //
@@ -121,7 +180,7 @@ $v_item_for_exterior   =  $item['item_for_exterior'];
   <body>
 
   <?php
-    dbg('> DELETE ? [' . $v_delete . ']');
+    //dbg('> DELETE ? [' . $v_delete . ']');
   ?>
 
 
