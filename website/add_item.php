@@ -3,7 +3,7 @@ include("../0_core/config.php");
 include("../0_core/session.php");
 //
 //Specific include
-include("../2_maxima/dbio_item.php");
+include("../2_maxima/dbio_items.php");
 //
 //
 function insert_item($p_item_name,      $p_category,   $p_main_description,
