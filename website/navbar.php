@@ -26,7 +26,6 @@
       ?>
             <a class='logo_links' href="../website/admin_index.php">Admin page</a>
             <a class='logo_links' href="../website/all_items.php">All items</a>
-            <a class='logo_links' href="../website/settings.php">Settings</a>
       <?php
           endif;
         endif; 
