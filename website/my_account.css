@@ -18,6 +18,11 @@ button {
   margin-top: 45px;
 }
 
+.user_info{
+  text-align: left;
+  padding-left: 100px;
+}
+
 .FlexContainer {
   display: flex;
   flex-direction: row;
@@ -86,6 +91,9 @@ tr:nth-child(even){
 }
 
 td {
-  text-align: center;
-  
+  text-align: center;  
+}
+
+.generic_button{
+  width: 200px;
 }
