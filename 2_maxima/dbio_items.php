@@ -5,7 +5,7 @@
 //
 class Item_Class {
   // Properties
-  private $item_id = 0;
+  public $item_id = 0;
   //  //
   public $item_name;
   public $item_category;
@@ -108,6 +108,70 @@ class Item_Class {
     }
     //
     dbg('> CreateItem 1');
+    //
+    return TRUE;
+  }
+
+  //
+  // Update Item Method
+  //
+  public function UpdateItem() {
+    global $db;
+    //
+    if($this->item_for_interior <> '1'){ $this->item_for_interior = '0'; }
+    if($this->item_for_exterior <> '1'){ $this->item_for_exterior = '0'; }
+    //
+      $query = "UPDATE items
+                   SET item_name           = '$this->item_name'
+                      ,item_volume         = '$this->item_volume'
+                      ,item_unit           = '$this->item_unit'
+                      ,item_price          = '$this->item_price'
+                      ,item_disc10         = '$this->item_disc10'
+                      ,item_category       = '$this->item_category'
+                      ,item_stock          = '$this->item_stock'
+                      ,item_description    = '$this->item_description'
+                      ,item_characteristic = '$this->item_characteristic'
+                      ,item_how_to_use     = '$this->item_how_to_use'
+                      ,item_add_info       = '$this->item_add_info'
+                      ,item_for_interior   = '$this->item_for_interior'
+                      ,item_for_exterior   = '$this->item_for_exterior'                      
+                WHERE  item_id = '$this->item_id'
+               ";
+      //Run a query
+      mysqli_query($db, $query);
+      //Check if query went fine
+      if(empty(mysqli_error($db))){
+        dbg('> "UPDATE items" query is fine!');
+      }else{
+        echo mysqli_error($db);
+        dbg('ERROR: "UPDATE items" query has errors!');
+        //
+        return FALSE;
+      }
+    //
+    return TRUE;
+  }
+  //
+  //
+  // Delete Item method
+  //
+  public function DeleteItem() {
+    global $db;
+    //
+      $query = "DELETE items                     
+                WHERE  item_id = '$this->item_id'
+               ";
+      //Run a query
+      mysqli_query($db, $query);
+      //Check if query went fine
+      if(empty(mysqli_error($db))){
+        dbg('> "DELETE items" query is fine!');
+      }else{
+        echo mysqli_error($db);
+        dbg('ERROR: "DELETE items" query has errors!');
+        //
+        return FALSE;
+      }
     //
     return TRUE;
   }
