@@ -42,6 +42,7 @@ class Item_History_Class {
                    ,item_add_info
                    ,item_for_interior
                    ,item_for_exterior
+                   ,item_status
                    ,record_date
                    ,user
                   )
@@ -58,6 +59,7 @@ class Item_History_Class {
                    ,'$this->item_add_info'
                    ,'$this->item_for_interior'
                    ,'$this->item_for_exterior'
+                   ,'$this->item_status'
                    , NOW()
                    ,'$this->user'
                  )";
