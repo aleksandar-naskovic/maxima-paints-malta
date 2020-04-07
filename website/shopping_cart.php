@@ -126,11 +126,16 @@ if(isset($_GET["action"]))
 					<?php						
 					date_default_timezone_set("Europe/Paris");
 					if(isset($_POST["order_now"])){
+					// Order Number sequence
+					$v_order_seq = GetSettingValue('next_order_number_sequence');
+					$v_next_order_seq = $v_order_seq + 1;
 					//
 					//Add to history
 					$s_stock_history = new Stock_History_Class();
+					$s_order_history = new Order_History_Class();
 					foreach($_SESSION["shopping_cart"] as $keys => $value)
 						{
+							//Stock history table
 							//Get item by id
 							$item = get_item_id($value['item_id']);
 							//Populate fields
@@ -148,9 +153,23 @@ if(isset($_GET["action"]))
     					//$s_stock_history->item_status      = mysqli_real_escape_string($db, $item['item_name']);
     					$s_stock_history->vat              = mysqli_real_escape_string($db, $vat);
     					// Create history function
-    					$s_stock_history->CreateHistory();
 							
-							
+							//
+							//
+							//Order history table
+    					$s_order_history->item_id         				  = mysqli_real_escape_string($db, $value['item_id']);
+    					$s_order_history->item_name       				  = mysqli_real_escape_string($db, $value['item_name']);
+    					$s_order_history->item_category   				  = mysqli_real_escape_string($db, $item['item_category']);
+    					$s_order_history->item_volume     				  = mysqli_real_escape_string($db, $item['item_volume']);
+    					$s_order_history->item_unit       				  = mysqli_real_escape_string($db, $item['item_unit']);
+    					$s_order_history->item_price      				  = mysqli_real_escape_string($db, $item['item_price']);
+    					$s_order_history->item_disc10     				  = mysqli_real_escape_string($db, $value['item_disc10']);
+    					$s_order_history->item_quantity   					= mysqli_real_escape_string($db, $value['item_quantity']);
+    					//$s_order_history->record_date     				  = mysqli_real_escape_string($db, date());
+							$s_order_history->user_username             = mysqli_real_escape_string($db, $_SESSION['username']);
+							$s_order_history->order_number_sequence     = mysqli_real_escape_string($db, $v_next_order_seq);
+							//
+							$s_order_history->CreateOrderHistory();
 						}
 						
 	//Email
