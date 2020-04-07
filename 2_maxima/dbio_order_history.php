@@ -116,16 +116,8 @@ class Order_History_Class {
     // Get data from the mySQL query
     //
     $v_db_row = mysqli_query($db, $query);
-    $v_db_structure = mysqli_fetch_array($v_db_row); 
     //
-    $array = [];
-          if($v_db_row) {
-            while($v_db_structure = mysqli_fetch_assoc($v_db_row)) 
-            {
-            $array[] = $v_db_structure;
-            }
-          }
-        return $array;
+    return $v_db_row;
     }
 //
 }
