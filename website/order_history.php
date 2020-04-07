@@ -23,40 +23,38 @@ if (isset($_SESSION['username'])) {
   Order history table
 -->
       <!-- Load order history -->
-      <?php $history = Order_History_Class::get_order_history();?>
+      <?php  $history = Order_History_Class::get_order_history();?>
 
       <p class="underline">Order history</p><br>
       <?php if(!empty($history))
       {?>
       <table>
             <tr>
-              <th width="20%">Item name</th>
-              <th width="30%">Item category</th> 
-              <th width="5%">Item volume</th>
-              <th width="10%">Item unit</th>
-              <th width="10%">Item price</th>
-              <th width="10%">Item disc</th>
-              <th width="10%">Item quantity</th>
-              <th width="10%">Record date</th>
-              <th width="10%">User</th>
+              <th width="10%">Date</th>
               <th width="10%">Order Number</th>
+              <th width="20%">Item name</th>
+              <th width="20%">Item category</th> 
+              <th width="10%">Qty</th>
+              <th width="5%">Size</th>
+              <th width="10%">Price</th>
+              <th width="10%">Disc</th>
+              <th width="10%">User</th>
             </tr>
           
   
-           <?php foreach($history as $s_history) 
+           <?php foreach($history as $key => $s_history) 
 	      {    ?>
   
             <tr>
+              <td><?php echo $s_history['record_date']; ?></td>
+              <td><?php echo $s_history['order_number_sequence']; ?></td>           
               <td><?php echo $s_history['item_name']; ?></td>
               <td><?php echo $s_history['item_category']; ?></td>
-              <td><?php echo $s_history['item_volume']; ?></td>
-              <td><?php echo $s_history['item_unit']; ?></td>
+              <td><?php echo $s_history['item_quantity']; ?></td>
+              <td><?php echo $s_history['item_volume']." ".$s_history['item_unit']; ?></td>
               <td><?php echo $s_history['item_price']; ?></td>
               <td><?php echo $s_history['item_disc10']; ?></td>
-              <td><?php echo $s_history['item_quantity']; ?></td>
-              <td><?php echo $s_history['record_date']; ?></td>
               <td><?php echo $s_history['user_username']; ?></td>           
-              <td><?php echo $s_history['order_number_sequence']; ?></td>           
             </tr>
 <?php	  }?>
             
