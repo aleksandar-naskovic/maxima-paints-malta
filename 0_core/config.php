@@ -17,6 +17,7 @@ require_once("../0_core/functions.php");
 //Objects
 require_once("../2_maxima/dbio_stock_history.php");
 require_once("../2_maxima/dbio_item_history.php");
+require_once("../2_maxima/dbio_order_history.php");
 require_once("../1_log_in/dbio_users.php");
 //
 function dbg($p_string){
