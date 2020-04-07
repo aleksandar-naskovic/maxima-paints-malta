@@ -21,7 +21,7 @@ class Item_History_Class {
   public $item_for_interior;
   public $item_for_exterior;
   public $item_status;
-  public $date;
+  public $record_date;
   public $user;
   //
   // Get next Item_Id Method
@@ -42,6 +42,7 @@ class Item_History_Class {
                    ,item_add_info
                    ,item_for_interior
                    ,item_for_exterior
+                   ,record_date
                    ,user
                   )
            VALUES ( '$this->item_id'
@@ -57,6 +58,7 @@ class Item_History_Class {
                    ,'$this->item_add_info'
                    ,'$this->item_for_interior'
                    ,'$this->item_for_exterior'
+                   , NOW()
                    ,'$this->user'
                  )";
       //Run a query
