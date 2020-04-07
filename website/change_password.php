@@ -39,8 +39,8 @@ if (isset($_SESSION['username'])) {
 <!-- 
   New password
 -->
-<div class="FlexContainer">        
-        <div class="col-25">  
+        <div class="FlexContainer">        
+          <div class="col-25">  
             <label>New password</label>
           </div>
           <div class="col-75">
@@ -50,7 +50,7 @@ if (isset($_SESSION['username'])) {
 <!-- 
   Confirm new password
 -->
-<div class="FlexContainer">        
+      <div class="FlexContainer">        
         <div class="col-25">  
           <label>Confirm new password</label>
         </div>
@@ -58,32 +58,29 @@ if (isset($_SESSION['username'])) {
          <input type="password" name="confirm_password">
         </div>
       </div><br>
-
 <!-- 
   Update Button
 -->
-          <p class="underline">&nbsp;</p> 
-          <button type="submit" class="btn" name="submit">Update</button> 
+      <p class="underline">&nbsp;</p> 
+      <button type="submit" class="btn" name="submit">Update</button> 
   <!-- 
   If button clicked
 -->
-  <?php if (isset($_POST["submit"])) { 
+  <?php 
+  if (isset($_POST["submit"])) { 
     //check old password
-    if(strcmp($s_user->password, $_POST['old_password']) == 0) {
+    if($s_user->password == md5($_POST['old_password'])) {
       // check if new password match the confirm password
       if (strcmp($_POST['new_password'], $_POST['confirm_password']) == 0) {
         $s_user->password = mysqli_real_escape_string($db, $_POST['new_password']);
         $s_user->ChangePassword($s_user->username);
+        echo "<h3>Password updated</h3>";
       }
       else echo "<h3>New password doesn't match the confirm password</h3>";
     }
     else echo "<h3>Your old password is not correct</h3>";
- 
-  
-  
-}
+  }
 ?>      
-
 </form>
     </div>
   </body>
