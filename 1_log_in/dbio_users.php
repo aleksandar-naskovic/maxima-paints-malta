@@ -172,6 +172,13 @@ public function EditUser($username){
 return $query;
 }
 
+public function ChangePassword($username){
+  global $db;
+  $query = "UPDATE users
+            SET    password = '$this->password'
+            WHERE  username =  $username";
+}
+
 }
 
 
