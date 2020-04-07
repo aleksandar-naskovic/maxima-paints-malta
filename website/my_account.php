@@ -11,6 +11,7 @@ if (isset($_SESSION['username'])) {
   <head>
     <title>My account</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css"> 
     <link rel="stylesheet" type="text/css" href="my_account.css">   
   </head>
   <body>
@@ -25,7 +26,8 @@ if (isset($_SESSION['username'])) {
         <p>Email: <?php echo "<b>" . $s_user->user_email ."</b>"; ?></p>
         <p>Address: <?php echo "<b>" . $s_user->user_address ."</b>"; ?></p>
         <p>Phone number: <?php echo "<b>" . $s_user->user_phone_no ."</b>"; ?></p>
-        <a href="update_account_details.php"><button class="generic_button">Edit account details</button></a>
+        <a href="update_account_details.php"><button class="button">Edit account details</button></a>
+        <a href="change_password.php"><button class="button">Change password</button></a>
       </div>
       
          <!-- 
