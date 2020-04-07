@@ -141,7 +141,7 @@ if (isset($_POST["submit"])) {
   
   //
   //
-  //header("Location: ../website/all_items.php");
+  header("Location: ../website/all_items.php");
 }
 //
 //
@@ -182,7 +182,6 @@ $v_item_for_exterior   =  $item['item_for_exterior'];
       
       <br>
       <h3>Edit item Page</h3>
-      <h2>Date: <?php echo date("Y-m-d h:i:sa") ?></h2>
       <h2 class="left"><?php echo $v_item_name;?> [<?php echo $v_item_volume;?><?php echo $v_item_unit;?>]</h2>
       
       <form method="post" action="<?php echo $_SERVER['PHP_SELF']. '?item_id='.$item['item_id']; ?>" enctype="multipart/form-data">
