@@ -143,7 +143,7 @@ class User_Class {
     //
   }
 
-public function EditUser($username){
+public function EditUser($user_id){
   global $db;
   $query = "UPDATE users
             SET    username             = '$this->username'
@@ -152,7 +152,7 @@ public function EditUser($username){
                   ,user_email           = '$this->user_email'
                   ,user_address         = '$this->user_address'
                   ,user_phone_no        = '$this->user_phone_no'
-            WHERE  username = '$this->username'
+            WHERE  user_id = '$this->user_id'
             ";
     //Run a query
     mysqli_query($db, $query);
@@ -168,6 +168,19 @@ public function ChangePassword($username){
             SET    password = '$this->password'
             WHERE  username =  $username";
 }
+//
+public function get_users() {
+  global $db;
+  //
+  $query =
+  "SELECT *
+   FROM users
+  ";
+  // Get data from the mySQL query
+  $v_db_row = mysqli_query($db, $query);
+  //
+  return $v_db_row;
+  }
 
 }
 
