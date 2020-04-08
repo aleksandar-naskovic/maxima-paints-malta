@@ -72,32 +72,12 @@ require_once("../0_core/config.php");
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../0_core/style.css">
 	<link rel="stylesheet" type="text/css" href="../0_core/generic_input.css">
-	<style>
-		.page{
-          padding: 60px 120px;
-          text-align: center;
-        }
-        button {
-          background-color: white; 
-          color: black; 
-          border: 2px solid #ff6804;
-          padding: 20px 80px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          font-size: 16px;
-          margin: 4px 2px;
-          cursor: pointer;
-          margin-top: 45px;
-      }
-	</style>
 </head>
 <body>
 	<?php// include("../website/navbar.php"); ?>
 	<div class="page">
 		<h2>Create User</h2>	<br>
 		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
-			<?php include('errors.php'); ?>
 <!-- 
   User name
 -->
@@ -233,7 +213,7 @@ require_once("../0_core/config.php");
 			<!-- 
   Submit button
 			-->
-				<button type="submit" class="btn" name="reg_user">Register</button>
+				<button type="submit" class="main_button" name="reg_user">Register</button>
 			<br>
 			<p>
 				Already a member ? <a href="login.php">Sign in</a>
