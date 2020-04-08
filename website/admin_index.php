@@ -20,8 +20,8 @@
             </div>
             <div class="users">
             <p class="underline">User settings</p>
-            <a href="#"><button class="button">Add user</button></a>
-            <a href="#"><button class="button">Edit user</button></a>
+            <a href="new_user.php"><button class="button">Add user</button></a>
+            <a href="all_users.php"><button class="button">All users</button></a>
             </div>
             <div class="settings">
             <p class="underline">Admin settings</p>
