@@ -2,7 +2,7 @@
 require_once("../0_core/config.php");
 include("../0_core/session.php");
 
-function f_add_stock($p_item_id, $p_value){
+function f_new_stock($p_item_id, $p_value){
   global $db;
 
   $query = "UPDATE items 
@@ -46,7 +46,7 @@ if (isset($_POST["sub_item_id"])) {
     $vat_value = GetSettingValue('vat');
 
   if ($v_sub_action == 'A'){
-    f_add_stock($v_sub_item_id, $v_sub_value);
+    f_new_stock($v_sub_item_id, $v_sub_value);
     
     //
     // Populate stock fields
