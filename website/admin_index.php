@@ -15,13 +15,13 @@
         <div clas="options">
             <div class="items">
             <p class="underline">Item settings</p>
-                <a href="add_item.php"><button class="button">Add item</button></a>
-                <a href="all_categories.php"><button class="button">Edit item</button></a><br><br>
+              <button class="button" onclick="window.location.href = 'add_item.php';">New Item</button>
+              <button class="button" onclick="window.location.href = 'all_items.php';">Edit Item</button>
             </div>
             <div class="users">
-            <p class="underline">User settings</p>
-            <a href="new_user.php"><button class="button">Add user</button></a>
-            <a href="all_users.php"><button class="button">All users</button></a>
+              <p class="underline">User settings</p>
+              <button class="button" onclick="window.location.href = 'new_user.php';">New User</button>
+              <button class="button" onclick="window.location.href = 'all_users.php';">Edit User</button>
             </div>
             <div class="settings">
             <p class="underline">Admin settings</p>
