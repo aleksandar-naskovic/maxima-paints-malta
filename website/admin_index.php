@@ -15,7 +15,7 @@
         <div clas="options">
             <div class="items">
             <p class="underline">Item settings</p>
-              <button class="button" onclick="window.location.href = 'add_item.php';">New Item</button>
+              <button class="button" onclick="window.location.href = 'new_item.php';">New Item</button>
               <button class="button" onclick="window.location.href = 'all_items.php';">Edit Item</button>
             </div>
             <div class="users">
