@@ -14,7 +14,7 @@ $v_item_id = $_GET['item_id'];
   <head>
     <title>Add Stock</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css">
-    <link rel="stylesheet" type="text/css" href="add_stock.css">    
+    <link rel="stylesheet" type="text/css" href="new_stock.css">    
   </head>
   <body>
     <div>
