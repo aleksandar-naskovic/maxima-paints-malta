@@ -158,8 +158,8 @@ class Stock_History_Class {
 
 <?php
 // 
-//  Function Add stock
-function add_stock($p_stock, $p_item_id){
+//  Function New stock
+function new_stock($p_stock, $p_item_id){
   global $db;
   
   $query = "UPDATE items
