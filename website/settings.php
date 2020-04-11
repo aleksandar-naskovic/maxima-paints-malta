@@ -31,11 +31,7 @@ function update_most_popular_item_3($p_setting_value){
   }
   //
   if (isset($_POST["submit"])) { 
-    //
-    // Update vat code
-    $v_vat = $_POST['update_vat'];
-    SetSettingValue('vat', $v_vat);
-    //
+
     // Update most populat 1
     $most_popular_item_1 = $_POST['most_popular_item_1'];
     SetSettingValue('most_popular_item_1', $most_popular_item_1);
@@ -58,7 +54,6 @@ function update_most_popular_item_3($p_setting_value){
   }
   else{
     //Variable declaration
-    $v_vat = GetSettingValue("vat");
     $most_popular_item_1 = GetSettingValue("most_popular_item_1");
     $most_popular_item_2 = GetSettingValue("most_popular_item_2");
     $most_popular_item_3 = GetSettingValue("most_popular_item_3");
@@ -71,7 +66,7 @@ function update_most_popular_item_3($p_setting_value){
 ?>
 <html>
   <head>
-    <title>Settings</title>
+    <title>Generic Website Settings</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
     <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css">  
   </head>
@@ -80,23 +75,7 @@ function update_most_popular_item_3($p_setting_value){
     <div class="page">
       
       <br>
-      <h2>Settings</h2><br>	
- <!-- 
-   Update Vat form
--->     
-      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
-       
-       
-        <p class="underline">VAT settings</p>
-        <div class="FlexContainer">        
-          <div class="col-25">  
-            <label>VAT value</label>
-          </div>
-          <div id="vat_value" class="col-75">
-            <input type="text" name="update_vat" value="<?php echo $v_vat; ?>" >
-          </div>
-        </div><br>
-
+      <h2>Generic Website Settings</h2>
  <!-- 
    Update Most popular items
 -->   
@@ -204,7 +183,7 @@ function update_most_popular_item_3($p_setting_value){
           Update Button
         -->   
         <div class="col_button">  
-        <button type="submit" class="btn" name="submit">Update</button> 
+        <button type="submit" class="main_button" name="submit">Update</button> 
         </div>      
       </form>
     </div>
