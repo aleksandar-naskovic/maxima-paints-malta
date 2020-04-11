@@ -282,6 +282,7 @@ echo "DBG " . $query;
                   <input type="hidden" id="sub_action" name="sub_action">
 
                   <input id="id_sub_but" class="main_button" type="button" onclick="SubmitFormFunction()" value="Submit form">
+                
                 </form>
                 <!--//-->
               </div>
