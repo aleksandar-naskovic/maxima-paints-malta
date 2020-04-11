@@ -105,7 +105,8 @@ if (isset($_POST["sub_item_id"])) {
 <html>
   <head>
     <title>All items</title>
-    <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
+    <link rel="stylesheet" type="text/css" href="../0_core/style.css">
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css">
     <link rel="stylesheet" type="text/css" href="all_items.css">       
   </head>
   <body>
@@ -257,11 +258,30 @@ echo "DBG " . $query;
                 <form id="myForm" method="post" action="<?php echo $_SERVER['PHP_SELF']?>" enctype="multipart/form-data">
                   <h3 id="id_modal_h3">Error happend please contact administrator!</h3>
                   <h2 id="id_modal_h2">Error happend please contact administrator!</h2>
-                  <p class="modal_p">Value:</p> <input type="text" name="sub_value" id="id_sub_value">
-                  <p class="modal_p">Comment:</p> <input type="text" name="sub_comment" id="id_sub_comment">
+                  
+                  <br>
+                  <div class="FlexContainer">
+                    <div class="col-25">  
+                      <label>Quantity:</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" name="sub_value" id="id_sub_value">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="FlexContainer_up">
+                    <div class="col-25">  
+                      <label>Comment:</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea type="text" rows="10" cols="74" name="sub_comment" id="id_sub_comment"></textarea>
+                    </div>
+                  </div>
+
                   <input type="hidden" id="sub_item_id" name="sub_item_id">
                   <input type="hidden" id="sub_action" name="sub_action">
-                  <input id="id_sub_but" type="button" onclick="SubmitFormFunction()" value="Submit form">
+
+                  <input id="id_sub_but" class="main_button" type="button" onclick="SubmitFormFunction()" value="Submit form">
                 </form>
                 <!--//-->
               </div>
@@ -324,7 +344,7 @@ function myFunction(p_item_id, p_item_name, p_action) {
   document.getElementById("id_sub_comment").value = "";
   document.getElementById("id_sub_value").value = "";
 
-  document.getElementById("id_sub_value").placeholder   = "Please add a value.";
+  document.getElementById("id_sub_value").placeholder   = "Please add a quantity.";
   document.getElementById("id_sub_comment").placeholder   = "Please add a comment.";
   document.getElementById("id_sub_comment").style.borderColor = "";
   document.getElementById("id_sub_comment").style.borderWidth = "";
