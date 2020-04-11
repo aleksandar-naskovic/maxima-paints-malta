@@ -73,7 +73,7 @@ function update_most_popular_item_3($p_setting_value){
   <head>
     <title>Settings</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
-    <link rel="stylesheet" type="text/css" href="settings.css">   
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css">  
   </head>
   <body>
     <?php include("navbar.php")?>
