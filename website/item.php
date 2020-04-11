@@ -91,7 +91,7 @@
 -->
         <div class="item_photo">
           <?php echo  '<img src="../images/'.$item['item_id'].'.png" >'; ?>
-          <h3 class="main_description"><?php echo $item['item_description'];?></h3>
+          <h3 class="main_description"><?php echo nl2br($item['item_description']);?></h3>
         </div>
       </div>
 
