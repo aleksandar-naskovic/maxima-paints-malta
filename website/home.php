@@ -124,7 +124,7 @@ include("../0_core/session.php");
             </style>  
             <p class="item_volume"><?=$most_popular_item_1['item_volume']?></p>              
     <!-- Main Description -->
-          <p class="main_description"><?= $most_popular_item_1['item_description'] ?></p>
+          <p class="main_description"><?= nl2br($most_popular_item_1['item_description']) ?></p>
         </figcaption>
     </div>
     <!-- 
@@ -149,7 +149,7 @@ include("../0_core/session.php");
             </style>  
             <p class="item_volume"><?=$most_popular_item_2['item_volume']?></p>              
   <!-- Main Description -->
-          <p class="main_description"><?= $most_popular_item_2['item_description'] ?></p>
+          <p class="main_description"><?= nl2br($most_popular_item_2['item_description']) ?></p>
         </figcaption>
     </div>
     <!-- 
@@ -175,7 +175,7 @@ include("../0_core/session.php");
         </style>  
         <p class="item_volume"><?=$most_popular_item_3['item_volume']?></p>              
         <!-- Main Description -->
-        <p class="main_description"><?= $most_popular_item_3['item_description'] ?></p>
+        <p class="main_description"><?= nl2br($most_popular_item_3['item_description']) ?></p>
       </figcaption>
     </div>
 
