@@ -18,7 +18,7 @@ if (isset($_SESSION['username'])) {
     <?php include("navbar.php")?>
     <div class="page">
       <br>
-      <h2>My account</h2><br>
+      <h2>My Account</h2><br>
       <p class="underline"><?php echo $s_user->first_name; ?>'s info</p><br>
       <div class = "user_info">
         <p>Username: <?php echo "<b>" . $s_user->username ."</b>"; ?></p>
