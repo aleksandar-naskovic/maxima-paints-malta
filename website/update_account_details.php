@@ -23,22 +23,22 @@ if (isset($_POST["submit"])) {
 ?>
 <html>
   <head>
-    <title>Update account details</title>
+    <title>Update Account Details</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
-    <link rel="stylesheet" type="text/css" href="update_account_details.css">   
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css"> 
   </head>
   <body>
     <?php include("navbar.php")?>
     <div class="page">
       <br>
-      <h2>Update account details</h2><br>
+      <h2>Update Account Details</h2><br>
      
       <!-- 
   Update form
 -->
       <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
       
-        <p class="underline">Update info</p><br>
+        <p class="underline">Account Details</p><br>
 <!-- 
   Username
 -->
@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
             <label>Username</label>
           </div>
           <div class="col-75">
-            <input type="text" name="username" value="<?php echo $s_user->username; ?>" >
+            <input type="text" name="username" value="<?php echo $s_user->username; ?>" disabled>
           </div>
         </div><br>
 <!-- 
@@ -111,7 +111,7 @@ if (isset($_POST["submit"])) {
 -->
           <p class="underline">&nbsp;</p> 
 
-          <button type="submit" class="btn" name="submit">Update</button>       
+          <button type="submit" class="main_button" name="submit">Update</button>       
 
 </form>
     </div>

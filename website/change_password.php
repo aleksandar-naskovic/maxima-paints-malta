@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
   <head>
     <title>Change password</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
-    <link rel="stylesheet" type="text/css" href="update_account_details.css">   
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css"> 
   </head>
   <body>
     <?php include("navbar.php")?>
@@ -62,7 +62,7 @@ if (isset($_SESSION['username'])) {
   Update Button
 -->
       <p class="underline">&nbsp;</p> 
-      <button type="submit" class="btn" name="submit">Update</button> 
+      <button type="submit" class="main_button" name="submit">Update</button> 
   <!-- 
   If button clicked
 -->

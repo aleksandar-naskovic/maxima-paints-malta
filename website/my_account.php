@@ -12,22 +12,50 @@ if (isset($_SESSION['username'])) {
     <title>My account</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
     <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css"> 
-    <link rel="stylesheet" type="text/css" href="my_account.css">   
   </head>
   <body>
     <?php include("navbar.php")?>
     <div class="page">
       <br>
       <h2>My Account</h2><br>
-      <p class="underline"><?php echo $s_user->first_name; ?>'s info</p><br>
+      <p class="underline">Account Details</p><br>
       <div class = "user_info">
-        <p>Username: <?php echo "<b>" . $s_user->username ."</b>"; ?></p>
-        <p>Full name: <?php echo "<b>" . $s_user->first_name. " ".$s_user->last_name ."</b>" ; ?></p>
-        <p>Email: <?php echo "<b>" . $s_user->user_email ."</b>"; ?></p>
-        <p>Address: <?php echo "<b>" . $s_user->user_address ."</b>"; ?></p>
-        <p>Phone number: <?php echo "<b>" . $s_user->user_phone_no ."</b>"; ?></p>
-        <a href="update_account_details.php"><button class="button">Edit account details</button></a>
-        <a href="change_password.php"><button class="button">Change password</button></a>
+        <div class="FlexContainer">
+          <div class="col-25"> 
+            <label>Username:</label>
+          </div>
+          <p><?php echo "<b>" . $s_user->username ."</b>"; ?></p>
+        </div>
+        <div class="FlexContainer">
+          <div class="col-25"> 
+            <label>Full name:</label>
+          </div>
+          <p><?php echo "<b>" . $s_user->first_name. " ".$s_user->last_name ."</b>" ; ?></p>
+        </div>
+        <div class="FlexContainer">
+          <div class="col-25"> 
+            <label>Email:</label>
+          </div>
+          <p><?php echo "<b>" . $s_user->user_email ."</b>"; ?></p>
+        </div>
+        <div class="FlexContainer">
+          <div class="col-25"> 
+            <label>Address:</label>
+          </div>
+          <p><?php echo "<b>" . $s_user->user_address ."</b>"; ?></p>
+        </div>
+        <div class="FlexContainer">
+          <div class="col-25"> 
+            <label>Phone number:</label>
+          </div>
+          <p><?php echo "<b>" . $s_user->user_phone_no ."</b>"; ?></p>
+        </div>
+        <br>
+
+        <button class="button" onclick="window.location.href = 'change_password.php';">Change Password</button>
+        <button class="button" onclick="window.location.href = 'update_account_details.php';">Edit Account Details</button>
+        <br>
+
       </div>
       
          <!-- 
@@ -63,7 +91,7 @@ if (isset($_SESSION['username'])) {
     </table>
     <?php 
       } 
-    else echo "<b>You don't have any purchase history</b>";
+    else echo "<b>You don't have any purchase history yet.</b>";
     ?>
     </div>
   </body>
