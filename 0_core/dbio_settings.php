@@ -24,8 +24,23 @@
                WHERE setting_name = '$p_setting_name'
              ";
     //
-    //Execute a query
+    //Execute UPDATE query
     mysqli_query($db, $query);
+    //
+    // If record is not updated then insert the record
+    if (mysqli_affected_rows($db) == 0){
+      //
+      $query = "INSERT INTO settings
+                       ( setting_name
+                        ,setting_value
+                       )
+                VALUES ( '$p_setting_name'
+                        ,'$p_setting_value'
+                       )
+               ";
+      //Execute INSERT query
+      mysqli_query($db, $query);
+    }
     //
     //Check for query errors
     if(empty(mysqli_error($db))){
