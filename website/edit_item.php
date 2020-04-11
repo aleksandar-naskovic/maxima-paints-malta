@@ -4,12 +4,12 @@ include("../0_core/session.php");
 //
 //Specific include
 include("../2_maxima/dbio_items.php");
-
+//
 //
 //Read parameters from URL
 //
 $v_item_id = $_GET['item_id'];
-
+//
 //
 //
 if (isset($_POST["delete"])) {  
@@ -20,8 +20,8 @@ if (isset($_POST["delete"])) {
   //
   $s_Item->DeleteItem();
   //
- 
 }
+//
 //
 if (isset($_POST["submit"])) {  
   //
@@ -49,27 +49,14 @@ if (isset($_POST["submit"])) {
   if (!empty($_POST['post_item_for_exterior'])) { $s_Item->item_for_exterior = '1'; } 
   else { $s_Item->item_for_exterior = '0'; }
   //
+  //Fields which are not updating
+  $s_Item->item_stock = $s_Old_Item->item_stock;
   //
   //
   //Update Item class function
+  //
   $s_Item->UpdateItem();
   //
-  //header("Location: ../website/all_items.php");
-  //
-  
-  //check if item exist
-  /*$v_item_name =             mysqli_real_escape_string($db, $_POST['item_name']);
-  $v_item_volume =           mysqli_real_escape_string($db, $_POST['item_volume']);
-  $v_item_unit =             mysqli_real_escape_string($db, $_POST['item_unit']);
-  $v_item_price =            mysqli_real_escape_string($db, number_format(round($_POST['item_price'],2),2));
-  $v_item_discount =         mysqli_real_escape_string($db, number_format(round($_POST['item_disc10'],2),2));
-  $v_item_category =         mysqli_real_escape_string($db, $_POST['item_category']);
-  $v_item_main_description = mysqli_real_escape_string($db, $_POST['item_description']);
-  $v_item_characteristic =   mysqli_real_escape_string($db, $_POST['item_characteristic']);
-  $v_item_how_to_use =       mysqli_real_escape_string($db, $_POST['item_how_to_use']);
-  $v_item_additional_info =  mysqli_real_escape_string($db, $_POST['item_add_info']);
-  $v_item_interior =         mysqli_real_escape_string($db, $_POST['item_for_interior']);
-  $v_item_exterior =         mysqli_real_escape_string($db, $_POST['item_for_exterior']);*/
   //
   //Create item history
   //
@@ -167,8 +154,7 @@ $v_item_for_exterior   =  $item['item_for_exterior'];
   <head>
     <title>Edit <?php echo $v_item_name;?></title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
-    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css"> 
-    <link rel="stylesheet" type="text/css" href="settings.css">       
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css">
   </head>
   <body>
 
@@ -181,8 +167,8 @@ $v_item_for_exterior   =  $item['item_for_exterior'];
     <div class="page">
       
       <br>
-      <h3>Edit item Page</h3>
-      <h2 class="left"><?php echo $v_item_name;?> [<?php echo $v_item_volume;?><?php echo $v_item_unit;?>]</h2>
+      <h2>Edit item Page</h2>
+      <h1 class="left"><?php echo $v_item_name;?> [<?php echo $v_item_volume;?><?php echo $v_item_unit;?>]</h1>
       
       <form method="post" action="<?php echo $_SERVER['PHP_SELF']. '?item_id='.$item['item_id']; ?>" enctype="multipart/form-data">
       
@@ -262,12 +248,12 @@ $v_item_for_exterior   =  $item['item_for_exterior'];
 <!-- 
   Main description
 -->
-        <div class="FlexContainer">
+        <div class="FlexContainer_up">
           <div class="col-25">  
             <label>Main description</label>
           </div>
           <div class="col-75">
-          <input type="text" name="post_item_description" value="<?php echo $v_item_description;?>">
+            <textarea type="text" rows="3" cols="60"  name="post_item_description" ><?php echo $v_item_description;?></textarea>
           </div>
         </div><br>
 <!-- 
