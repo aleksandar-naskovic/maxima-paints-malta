@@ -141,21 +141,22 @@ $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
   <head>
     <title>Add Item</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css">
-    <link rel="stylesheet" type="text/css" href="settings.css">    
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css">
+    <link rel="stylesheet" type="text/css" href="settings.css">
   </head>
   <body>
     <?php include("navbar.php")?>
     <div class="page">
 
-    <h2>Add New Item</h2><br>
+    <h2>New Item</h2><br>
 
       <form id="myForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
         
-        <p class="underline">Details</p>
+        <p class="underline">Item Details</p>
         
         <div class="FlexContainer">
           <div class="col-25">  
-            <label>Item name</label>
+            <label>Item Name</label>
           </div>
           <div class="col-75">  
             <input id="item_name" type="text" name="item_name" value="<?php $v_item_name; ?>" autocomplete="off">
@@ -298,8 +299,9 @@ $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
         </div>
         
         <p class="underline">&nbsp;</p>
-        <button id="id_sub_but" type="submit" class="btn"  onclick="SubmitFormFunction()" >Add Item</button> 
-        
+        <button id="id_sub_but" type="submit" class="main_button"  onclick="SubmitFormFunction()" >Add Item</button> 
+        <br>
+        <br>
       </form>
     
     </div>
