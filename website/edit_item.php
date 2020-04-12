@@ -179,6 +179,7 @@ $v_item_for_exterior   =  $item['item_for_exterior'];
         <button type="submit" class="button" name="hide">Hide Item</button>
 
         <p class="underline">Details</p><br>
+        <img src="../images/<?php echo $v_item_id; ?>.png" alt="">
 <!-- 
   Item name
 -->
