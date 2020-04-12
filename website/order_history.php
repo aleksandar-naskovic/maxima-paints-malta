@@ -11,8 +11,8 @@ if (isset($_SESSION['username'])) {
   <head>
     <title>Order history</title>
     <link rel="stylesheet" type="text/css" href="../0_core/style.css"> 
-    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css"> 
-    <link rel="stylesheet" type="text/css" href="my_account.css">   
+    <link rel="stylesheet" type="text/css" href="../0_core/generic_input.css">   
+    <link rel="stylesheet" type="text/css" href="all_items.css">   
   </head>
   <body>
     <?php include("navbar.php")?>
@@ -39,6 +39,10 @@ if (isset($_SESSION['username'])) {
               <th width="10%">Price</th>
               <th width="10%">Disc</th>
               <th width="10%">User</th>
+              <th width="10%">Status</th>
+              <th width="10%">Delivery date</th>
+              <th width="10%">Paid amount</th>
+              <th width="10%"></th>
             </tr>
           
   
@@ -55,6 +59,10 @@ if (isset($_SESSION['username'])) {
               <td><?php echo $s_history['item_price']; ?></td>
               <td><?php echo $s_history['item_disc10']; ?></td>
               <td><?php echo $s_history['user_username']; ?></td>           
+              <td><?php echo $s_history['order_status']; ?></td>           
+              <td><?php echo $s_history['delivery_date']; ?></td>           
+              <td><?php echo $s_history['paid_amount']; ?></td>           
+              <td><a href="order_info.php?order_id=<?php echo $s_history['order_number_sequence']; ?>">More</a></td>           
             </tr>
 <?php	  }?>
             
