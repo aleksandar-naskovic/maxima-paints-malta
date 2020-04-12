@@ -13,6 +13,9 @@ class Order_History_Class {
  public   $record_date;
  public   $user_username;
  public   $order_number_sequence;
+ public   $order_status;
+ public   $delivery_date;
+ public   $paid_amount;
 //
  public function CreateOrderHistory() {
   global $db;
@@ -33,6 +36,7 @@ class Order_History_Class {
                   ,record_date
                   ,user_username
                   ,order_number_sequence
+                  ,order_status
                 )
          VALUES ( 
                   '$this->item_id'
@@ -46,6 +50,7 @@ class Order_History_Class {
                  , NOW()
                  ,'$this->user_username'
                  ,'$this->order_number_sequence'
+                 ,'PENDING'
                )";
     //Run a query
     mysqli_query($db, $query);
@@ -72,28 +77,17 @@ class Order_History_Class {
          ,record_date
          ,user_username
          ,order_number_sequence
+         ,order_status
+         ,delivery_date
+         ,paid_amount
     FROM int_order_history
    WHERE $p_type = '$p_value'
   ";
   //
   // Get data from the mySQL query
   $v_db_row = mysqli_query($db, $query);
-  $v_db_structure = mysqli_fetch_array($v_db_row); 
   //
-  $this->item_id                 = $v_db_structure['item_id'];
-  $this->item_name               = $v_db_structure['item_name'];
-  $this->item_category           = $v_db_structure['item_category'];
-  $this->item_volume             = $v_db_structure['item_volume'];
-  $this->item_unit               = $v_db_structure['item_unit'];
-  $this->item_price              = $v_db_structure['item_price'];
-  $this->item_disc10             = $v_db_structure['item_disc10'];
-  $this->item_quantity              = $v_db_structure['item_quantity'];
-  $this->record_date             = $v_db_structure['record_date'];
-  $this->user_username           = $v_db_structure['user_username'];
-  $this->order_number_sequence   = $v_db_structure['order_number_sequence'];
- 
-  //
-  return TRUE;
+  return $v_db_row;
   }
   //
   public function get_order_history() {
@@ -110,6 +104,9 @@ class Order_History_Class {
            ,record_date
            ,user_username
            ,order_number_sequence
+           ,order_status
+           ,delivery_date
+           ,paid_amount
       FROM int_order_history
     ";
     //
@@ -119,6 +116,55 @@ class Order_History_Class {
     //
     return $v_db_row;
     }
+//
+public function item_delivered($p_item_id, $p_order_id){
+  global $db;
+  
+  $query = "UPDATE int_order_history
+            SET    delivery_date   =  NOW()
+            WHERE  item_id = '$p_item_id' AND order_number_sequence = '$p_order_id'
+          ";
+  
+  mysqli_query($db, $query);
+    if(empty(mysqli_error($db))){
+      dbg('> "UPDATE int_order_history" query is fine!');
+    }else{
+      echo mysqli_error($db);
+      dbg('ERROR: "UPDATE int_order_history" query has errors!');
+      //
+      return FALSE;
+    }
+  //
+  return $query;
+  }
+//
+public function LoadOrderHistoryById($p_item_id, $p_order_id) {
+  global $db;
+  //
+  $query =
+  "SELECT item_id
+         ,item_name
+         ,item_category
+         ,item_volume
+         ,item_unit
+         ,item_price
+         ,item_disc10
+         ,item_quantity
+         ,record_date
+         ,user_username
+         ,order_number_sequence
+         ,order_status
+         ,delivery_date
+         ,paid_amount
+    FROM int_order_history
+   WHERE item_id = '$p_item_id' AND order_number_sequence = '$p_order_id'
+  ";
+  //
+  // Get data from the mySQL query
+  $v_db_row = mysqli_query($db, $query);
+  //
+  return $v_db_row;
+  }
 //
 }
 ?>
