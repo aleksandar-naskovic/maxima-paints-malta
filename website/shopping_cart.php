@@ -140,7 +140,7 @@ if(isset($_GET["action"]))
 							$item = get_item_id($value['item_id']);
 							//Populate fields
 							$s_stock_history->user             = mysqli_real_escape_string($db, $_SESSION['username']);
-    					$s_stock_history->record_type      = mysqli_real_escape_string($db, 'BUY');
+    					$s_stock_history->record_type      = mysqli_real_escape_string($db, 'PURCHASE');
     					$s_stock_history->change_value     = mysqli_real_escape_string($db, $value['item_quantity']);
     					$s_stock_history->item_id          = mysqli_real_escape_string($db, $value['item_id']);
     					$s_stock_history->item_name        = mysqli_real_escape_string($db, $value['item_name']);
@@ -170,6 +170,7 @@ if(isset($_GET["action"]))
 							$s_order_history->order_number_sequence     = mysqli_real_escape_string($db, $v_next_order_seq);
 							//
 							$s_order_history->CreateOrderHistory();
+							
 						}
 						
 	//Email
@@ -352,12 +353,15 @@ if(isset($_GET["action"]))
 						$to= "aleksandar.naskovich@gmail.com";
 						mail($to,$subject,$message,$headers);
 
-					echo  '<p>Sent</p>';
+					  echo  '<p>Sent</p>';
+					
+		    	
+			
 					}
           ?>
         </form>
         <?php	
-        }
+				}
         ?>
 			</div>
 	</div>
