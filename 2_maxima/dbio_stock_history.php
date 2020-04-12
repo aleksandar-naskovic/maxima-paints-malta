@@ -135,7 +135,7 @@ class Stock_History_Class {
            ,vat
            ,comment
       FROM stock_history
-     WHERE user = '$p_user' AND record_type = 'buy'
+     WHERE user = '$p_user' AND record_type = 'PURCHASE'
     ";
     //
     // Get data from the mySQL query
