@@ -163,7 +163,7 @@ function new_stock($p_stock, $p_item_id){
   global $db;
   
   $query = "UPDATE items
-            SET    stock   =  stock + " . $p_stock . "
+            SET    item_stock   =  item_stock + " . $p_stock . "
             WHERE  item_id = '$p_item_id'
           ";
   
