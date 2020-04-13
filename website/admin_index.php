@@ -17,6 +17,7 @@
             <p class="underline"><b>ITEMS</b></p>
               <button class="button" onclick="window.location.href = 'new_item.php';">New Item</button>
               <button class="button" onclick="window.location.href = 'all_items.php';">Edit Items</button>
+              <button class="button" onclick="window.location.href = 'item_stock.php';">Item stock</button>
               <button class="button" onclick="window.location.href = 'stock_history.php';">Stock History</button>
               <button class="button" onclick="window.location.href = 'order_history.php';">Order history</button>
             </div>
