@@ -16,12 +16,11 @@ class Order_History_Class {
  public   $order_status;
  public   $delivery_date;
  public   $paid_amount;
+ public   $order_delivery;
 //
  public function CreateOrderHistory() {
   global $db;
   
-  //$this->record_date     = calculatedate();
-  //$this->orig_record_id  = calculatid();
 
     $query = "INSERT INTO int_order_history
                 (  
@@ -37,6 +36,7 @@ class Order_History_Class {
                   ,user_username
                   ,order_number_sequence
                   ,order_status
+                  ,order_delivery
                 )
          VALUES ( 
                   '$this->item_id'
@@ -51,6 +51,7 @@ class Order_History_Class {
                  ,'$this->user_username'
                  ,'$this->order_number_sequence'
                  ,'PENDING'
+                 ,'$this->order_delivery'
                )";
     //Run a query
     mysqli_query($db, $query);
