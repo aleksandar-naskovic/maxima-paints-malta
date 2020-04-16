@@ -133,23 +133,23 @@ if (isset($_POST["sub_item_id"])) {
         
         <?php
 
-        $query = "SELECT   it.item_id
-                          ,it.item_name
-                          ,it.item_category
-                          ,it.item_volume
-                          ,it.item_unit
-                          ,it.item_price
-                          ,it.item_disc10	 
-                          ,NVL(ias.item_stock_quantity, '0') as item_stock_quantity
-                          ,NVL(ias.stock_expiry_date, '/') as stock_expiry_date
-                    FROM  items it
-                    
-                       -- Show ITEM records which are not existing in the addendum to be able to display them as Stock = 0
-                LEFT JOIN item_addendum_stock ias
+        $query = "SELECT it.item_id
+                        ,it.item_name
+                        ,it.item_category
+                        ,it.item_volume
+                        ,it.item_unit
+                        ,it.item_price
+                        ,it.item_disc10	 
+                        ,NVL(ias.item_stock_quantity, '0') as item_stock_quantity
+                        ,NVL(ias.stock_expiry_date, '/') as stock_expiry_date
+                    FROM items it
+
+                      -- Show ITEM records which are not existing in the addendum to be able to display them as Stock = 0
+               LEFT JOIN item_addendum_stock ias
                       ON ias.item_id = it.item_id
 
-                    WHERE it.item_id is not NULL
-                  ORDER BY stock_expiry_date asc, it.item_name asc" ;
+                   WHERE it.item_id is not NULL
+                ORDER BY stock_expiry_date asc, it.item_name asc" ;
 
 echo "DBG [" . $query . "]";
 
