@@ -21,26 +21,17 @@ include("../0_core/session.php");
     <!-- Slideshow -->
     <div class="slideshow-container">
     <!-- Slider 1 -->
-      <div class="mySlides fade">
+      
         <!-- <div class="numbertext">1 / 3</div> -->
-        <img src="../images/slider1.jpg" style="width:100%">
+        <?php
+          for ($i = 1; $i < 3; ++$i) {
+            echo '<div class="mySlides fade">
+                    <img src="../images/slider_images/slider'.$i.'.jpg" style="width:100%">
+                  </div>';
+          }
+        ?>
         <!-- <div class="text">Caption Text</div>-->
-      </div>
-    <!-- Slider 2 -->
-      <div class="mySlides fade">
-        <img src="../images/slider2.jpg" style="width:100%">
-        <!-- <div class="text">Caption Two</div>-->
-      </div>
-    <!-- Slider 3 -->
-      <div class="mySlides fade">
-        <img src="../images/slider3.jpg" style="width:100%">
-        <!-- <div class="text">Caption Three</div>-->
-      </div>
-    <!-- Slider buttons 
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        -->
-    </div>
+      
 
     <br>
     <div style="text-align:center">
