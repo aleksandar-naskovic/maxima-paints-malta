@@ -1,26 +1,29 @@
 <?php
 require_once("../0_core/config.php");
-include("../0_core/session.php");
-
+require_once("../0_core/session.php");
+//
+//
 $s_user = new User_Class();
 if (isset($_SESSION['username'])) {
   $s_user->LoadUser("username", $_SESSION['username']);
 }
+//
+//
 if (isset($_POST["submit"])) {  
   // Populate user fields
-  $s_user->username       = mysqli_real_escape_string($db, $_POST['username']);
-  $s_user->first_name     = mysqli_real_escape_string($db, $_POST['first_name']);
-  $s_user->last_name      = mysqli_real_escape_string($db, $_POST['last_name']);
+  $s_user->username       = $_SESSION['username'];
   $s_user->user_email     = mysqli_real_escape_string($db, $_POST['email']);
   $s_user->user_address   = mysqli_real_escape_string($db, $_POST['user_address']);
   $s_user->user_phone_no  = mysqli_real_escape_string($db, $_POST['user_phone_no']);
-
-  $s_user->EditUser($s_user->username);
-  
-  
+  //
+  $s_user->UpdateUser($s_user->username);
+  //
+  // Redirect to My Account page
+  header("Location: ../website/my_account.php");
 }
-
+//
 ?>
+
 <html>
   <head>
     <title>Update Account Details</title>
@@ -50,28 +53,6 @@ if (isset($_POST["submit"])) {
             <input type="text" name="username" value="<?php echo $s_user->username; ?>" disabled>
           </div>
         </div><br>
-<!-- 
-  First name
--->
-<div class="FlexContainer">        
-        <div class="col-25">  
-            <label>First name</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="first_name" value="<?php echo $s_user->first_name; ?>">
-          </div>
-        </div><br>
-<!-- 
-  Last name
--->
-<div class="FlexContainer">        
-        <div class="col-25">  
-          <label>Last name</label>
-        </div>
-        <div class="col-75">
-         <input type="text" name="last_name" value="<?php echo $s_user->last_name; ?>">
-        </div>
-      </div><br>
 <!-- 
   Email
 -->
