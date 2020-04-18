@@ -28,12 +28,6 @@ if (isset($_SESSION['username'])) {
         </div>
         <div class="FlexContainer">
           <div class="col-25"> 
-            <label>Full name:</label>
-          </div>
-          <p><?php echo "<b>" . $s_user->first_name. " ".$s_user->last_name ."</b>" ; ?></p>
-        </div>
-        <div class="FlexContainer">
-          <div class="col-25"> 
             <label>Email:</label>
           </div>
           <p><?php echo "<b>" . $s_user->user_email ."</b>"; ?></p>
