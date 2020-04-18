@@ -60,8 +60,6 @@ class User_Class {
            ,user_status
            ,username
            ,password
-           ,first_name
-           ,last_name
            ,user_total_spend
            ,user_total_pending
            ,register_date
@@ -82,8 +80,6 @@ class User_Class {
     $this->user_status        = $v_db_structure['user_status'];
     $this->username           = $v_db_structure['username'];
     $this->password           = $v_db_structure['password'];
-    $this->first_name         = $v_db_structure['first_name'];
-    $this->last_name          = $v_db_structure['last_name'];
     $this->user_total_spend   = $v_db_structure['user_total_spend'];
     $this->user_total_pending = $v_db_structure['user_total_pending'];
     $this->register_date      = $v_db_structure['register_date'];
@@ -108,8 +104,6 @@ class User_Class {
                   ( user_id
                    ,user_type
                    ,username
-                   ,first_name
-                   ,last_name
                    ,password
                    ,user_email
                    ,register_date
@@ -119,8 +113,6 @@ class User_Class {
            VALUES ( '$v_new_seq'
                    ,'user'
                    ,'$this->username'
-                   ,'$this->first_name'
-                   ,'$this->last_name'
                    ,'$this->password'
                    ,'$this->user_email'
                    , NOW()
@@ -143,12 +135,10 @@ class User_Class {
     //
   }
 
-public function EditUser($username){
+public function UpdateUser($username){
   global $db;
   $query = "UPDATE users
             SET    username             = '$this->username'
-                  ,first_name   	      = '$this->first_name'
-                  ,last_name    	      = '$this->last_name'
                   ,user_email           = '$this->user_email'
                   ,user_address         = '$this->user_address'
                   ,user_phone_no        = '$this->user_phone_no'
@@ -156,6 +146,8 @@ public function EditUser($username){
             ";
     //Run a query
     mysqli_query($db, $query);
+
+    dbg("Error description: " . mysqli_error($db));
     //Commit
     mysqli_commit($db);
 
@@ -181,27 +173,6 @@ public function get_users() {
   //
   return $v_db_row;
   }
-
-
-//
-public function UpdateUser($user_id){
-  global $db;
-  $query = "UPDATE users
-            SET    username             = '$this->username'
-                  ,first_name   	      = '$this->first_name'
-                  ,last_name    	      = '$this->last_name'
-                  ,user_email           = '$this->user_email'
-                  ,user_address         = '$this->user_address'
-                  ,user_phone_no        = '$this->user_phone_no'
-            WHERE  user_id = '$user_id'
-            ";
-    //Run a query
-    mysqli_query($db, $query);
-    //Commit
-    mysqli_commit($db);
-
-return $query;
-}
 
 }
 
