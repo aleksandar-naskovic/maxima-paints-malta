@@ -86,7 +86,7 @@ include("../0_core/session.php");
     -->
     <br>
     <br>
-    <h3>Most popular items</h3>
+    <h1>Most Popular</h1>
     <?php 
       $most_popular_item_1 = most_popular_item_1();
       $most_popular_item_2 = most_popular_item_2();
@@ -174,7 +174,7 @@ include("../0_core/session.php");
        Categories Cards
     --->
     <br>
-    <h3>Browse by Categorie</h3>
+    <h1>Chose by Category</h1>
     
     <div class="cards">
       <?php foreach(get_category_names() as $v_categorys) : ?>
@@ -191,7 +191,7 @@ include("../0_core/session.php");
       Map
     -->
     <br><br>
-    <h3>Find us</h3>
+    <h1>Find Us</h1>
     <br>
     <div id="googleMap" style="width:100%;height:400px;"></div>
 
