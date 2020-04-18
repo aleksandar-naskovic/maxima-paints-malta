@@ -17,7 +17,20 @@
     <img class='logo_img' src="../Logo_1_01.png"  alt="logo"> 
     <a class="logo_title" href="../website/home.php">Maxima Paints Malta</a>
       <!-- IF USER IS ADMIN -->
+      <!-- LOG IN-->
+      <?php if (!isset($_SESSION['username'])): ?>
+        <a class='logo_links'  href="../1_log_in/login.php">Log in</a>
+      <?php endif ?>
+
+      <!-- LOG OUT -->
       <?php 
+        if (isset($_SESSION['username'])) :
+      ?>
+          <a class='logo_links' href="home.php?logout='1'">Logout</a>
+          <a class='logo_links' href="my_account.php">My account</a>
+      <?php 
+        endif;
+        //
         if (isset($_SESSION['username'])) :
           //
           $s_User->LoadUser("username", $_SESSION['username']);
@@ -29,20 +42,6 @@
       <?php
           endif;
         endif; 
-      ?>
-      <!-- LOG IN-->
-      <?php if (!isset($_SESSION['username'])): ?>
-        <a class='logo_links'  href="../1_log_in/login.php">Log in</a>
-      <?php endif ?>
-
-      <!-- LOG OUT -->
-      <?php 
-        if (isset($_SESSION['username'])) :
-      ?>
-          <a class='logo_links' href="my_account.php">My account</a>
-          <a class='logo_links' href="home.php?logout='1'">Logout</a>
-      <?php 
-        endif;
       ?>
   </div>
 
