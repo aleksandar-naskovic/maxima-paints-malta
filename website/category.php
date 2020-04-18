@@ -1,5 +1,6 @@
 <?php     
-  require_once("../0_core/config.php");  
+  require_once("../0_core/config.php");
+  require_once("../0_core/session.php");
 ?>
 
 <html>
@@ -10,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="category.css">    
   </head>
   <body>
-    <?php include("navbar.php")?>
+    <?php require_once("navbar.php")?>
     <div class="page"><br>
       <h2 class="headertext" id="headertext"><?php echo $_GET['category_name'];?></h2>
       <?php foreach(get_items($_GET['category_name']) as $item) : 
@@ -51,12 +52,10 @@
                   <p class="item_volume"><?=$item['item_volume']?></p>
                
  <!-- Main Description -->
-              <p class="main_description"><?= $item['item_description'] ?></p>
+              <p class="main_description"><?= nl2br($item['item_description']) ?></p>
             </figcaption>
           </div>
-        <?php 
-            endforeach;
-        ?>
+      <?php endforeach; ?>
     </div>
 
   </body>
