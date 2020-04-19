@@ -201,192 +201,423 @@ if(isset($_GET["action"]))
               
             }
             
-  //Email
-	$sub_total = $v_total-($v_total*$vat);
-	$logo = 'https://maximapaintsmalta.com/Logo_1_01.png';
-  $subject = "This is subject";
-	$message = "
-	<!doctype html>
-	<html>
-	<head>
-		<meta charset='utf-8'>
-		<title></title>
-		<style>
-		.invoice-box {
-			size: 7in 9.25in;
-			margin: auto;
-			padding: 30px;
-			border: 1px solid #eee;
-			box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-			font-size: 16px;
-			line-height: 24px;
-			font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-			color: #555;
-		}
-		
-		.invoice-box table {
-			width: 100%;
-			line-height: inherit;
-			text-align: left;
-		}
-		
-		.invoice-box table td {
-			padding: 5px;
-			vertical-align: top;
-		}
-		
-		.invoice-box table tr td:nth-child(2) {
-			text-align: right;
-		}
-		
-		.invoice-box table tr.top table td {
-			padding-bottom: 20px;
-		}
-		
-		.invoice-box table tr.top table td.title {
-			font-size: 45px;
-			line-height: 45px;
-			color: #333;
-		}
-		
-		.invoice-box table tr.information table td {
-			padding-bottom: 40px;
-		}
-		
-		.invoice-box table tr.heading td {
-			background: #eee;
-			border-bottom: 1px solid #ddd;
-			font-weight: bold;
-		}
-		
-		.invoice-box table tr.details td {
-			padding-bottom: 20px;
-		}
-		
-		.invoice-box table tr.item td{
-			border-bottom: 1px solid #eee;
-		}
-		
-		.invoice-box table tr.item.last td {
-			border-bottom: none;
-		}
-		
-		.invoice-box table tr.total td:nth-child(2) {
-			border-top: 2px solid #eee;
-			font-weight: bold;
-		}
-		
-		@media only screen and (max-width: 600px) {
-			.invoice-box table tr.top table td {
-				width: 100%;
-				display: block;
-				text-align: center;
-			}
-			
-			.invoice-box table tr.information table td {
-				width: 100%;
-				display: block;
-				text-align: center;
-			}
-		}
-		
-		/** RTL **/
-		.rtl {
-			direction: rtl;
-			font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-		}
-		
-		.rtl table {
-			text-align: right;
-		}
-		
-		.rtl table tr td:nth-child(2) {
-			text-align: left;
-		}
-		</style>
-	</head>
-	<body>
-		<div class='invoice-box'>
-			<table cellpadding='0' cellspacing='0'>
-				<tr class='top'>
-					<td colspan='2'>
-						<table>
-							<tr>
-								<td class='title'>";
-								//Logo 
-									$message .= "<img src='".$logo."'width=100>";
-									$message .= "
-								</td>
-								<td>"
-								//Date
-									.date('l, jS \of F Y'). "<br>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				
-				<tr class='information'>
-					<td colspan='2'>
-					<b>Invoice #</b>
-					<hr>
-						<table>
-							<tr>
-								<td><b>Invoiced to</b><br>
-										XYZ Corp.<br>
-										John Doe<br>
-										johndoe@gmail.com
-								</td>
-								<td>
-								<b>Pay to</b><br>
-									Maxima Paints Malta, Inc.<br>
-									12345 Sunny Road<br>
-									maximapa@maximapaintsmalta.com
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr class='heading'>
-					<td></td>
-					<td>Item</td>
-					<td>Qty</td>
-					<td>Amount</td>
-				</tr>";
-				foreach($_SESSION["shopping_cart"] as $keys => $values) {
-					$message .="<tr>
-							<td><img src='https://maximapaintsmalta.com/images/" .$values['item_id']. ".png' style='width:50px;'></td>
-							<td>".str_replace(chr(194),'',$values['item_name'])."</td>
-							<td style='text-align: center'>".$values['item_quantity']."</td>
-							<td>".$values['item_price']."</td>
-					</tr>";
-			}
-			$message .= "</tbody>
-				<tr class='total'>
-					<td></td>  
-					<td>Sub Total: €". $sub_total ."</td>
-				</tr>	
-				<tr class='total'>
-					<td></td>  
-					<td>VAT: €". $v_total*$vat ."</td>
-				</tr>
-				<tr class='total'>
-					<td></td>  
-					<td>Total: €". $v_total ."</td>
-				</tr>
-			</table>
-		</div>
-	</body>
-	</html>";
-						$from = "maximapa@maximapaintsmalta.com";
-						$headers = "From: $from";
-						$headers .= "MIME-Version: 1.0\r\n";
-                        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-						//Email 1
-						//mail($to,$subject,$message,$headers);
-						//Email 2
-						$to= "knezevicmilos@yahoo.com";
-						mail($to,$subject,$message,$headers);
+
+//Email
+
+$sub_total = $v_total-($v_total*$vat);
+
+$logo = 'https://maximapaintsmalta.com/Logo_1_01.png';
+
+$subject = "This is subject";
+
+$message = "
+
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title></title>
+  <style>
+  .invoice-box {
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+  }
+  
+  .invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+  }
+  
+  .invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+  }
+  
+  .invoice-box table tr td:nth-child(3) {
+    text-align: right;
+  }
+  
+  .invoice-box table tr.top table td {
+    padding-bottom: 20px;
+  }
+  
+  .invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+  }
+  
+  .invoice-box table tr.information table td {
+    padding-bottom: 40px;
+  }
+  
+  .invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+  
+  .invoice-box table tr.details td {
+    padding-bottom: 20px;
+  }
+  
+  .invoice-box table tr.item td{
+    border-bottom: 1px solid #eee;
+  }
+  
+  .invoice-box table tr.item.last td {
+    border-bottom: none;
+  }
+  
+  .invoice-box table tr.total td:nth-child(3) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .invoice-box table tr.top table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+    
+    .invoice-box table tr.information table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+  
+  /** RTL **/
+  .rtl {
+    direction: rtl;
+    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  }
+  
+  .rtl table {
+    text-align: right;
+  }
+  
+  .rtl table tr td:nth-child(2) {
+    text-align: left;
+  }
+  </style>
+</head>
+<body>
+  <div class='invoice-box'>
+    <table cellpadding='0' cellspacing='0'>
+      <tr class='top'>
+        <td colspan='4'>
+          
+            <tr>
+              <td class='title'>";
+
+              //Logo 
+
+              $message .= "<img src='".$logo."'width=100>";
+
+              $message .= "
+
+              </td>
+              <td></td>
+              <td></td>
+              <td>"
+              //Date
+                .date('l, jS \of F Y'). "<br>
+              </td>
+            </tr>
+          
+        </td>
+      </tr>
+      <tr class='information'>
+        <td colspan='4'>
+        <b>Invoice #</b>
+        <hr>
+          
+            <tr>
+              <td><b>Invoiced to</b><br>
+                  XYZ Corp.<br>
+                  John Doe<br>
+                  johndoe@gmail.com
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+              <b>Pay to</b><br>
+                Maxima Paints Malta, Inc.<br>
+                12345 Sunny Road<br>
+                maximapa@maximapaintsmalta.com
+              </td>
+            </tr>	
+        </td>
+      </tr>
+      <tr class='top'>
+        <td colspan='4'>
+            <tr>
+              <td><br></td>
+            </tr>
+        </td>
+      </tr>
+      <tr class='heading'>
+        <td></td>
+        <td>Item</td>
+        <td>Qty</td>
+        <td>Amount</td>
+      </tr>";
+      foreach($_SESSION["shopping_cart"] as $keys => $values) {
+        $message .="<tr>
+            <td><img src='https://maximapaintsmalta.com/images/" .$values['item_id']. ".png' style='width:50px;'></td>
+            <td>".str_replace(chr(194),'',$values['item_name'])."</td>
+            <td style='text-align: center'>".$values['item_quantity']."</td>
+            <td>".$values['item_price']."</td>
+        </tr>";
+    }
+    $message .= "</tbody>
+      <tr class='top'>
+        <td colspan='4'>
+            <tr>
+              <td><br></td>
+            </tr>
+        </td>
+      </tr>
+      <tr class='total'>
+        <td></td>
+        <td></td>   
+        <td>Sub Total: <b>e". $sub_total ."</b></td>
+      </tr>	
+      <tr class='total'>
+        <td></td>
+        <td></td>   
+        <td>VAT: <b>e". $v_total*$vat ."</b></td>
+      </tr>
+      <tr class='total'>
+        <td></td>
+        <td></td>   
+        <td>Total: <b>e". $v_total ."</b></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>";
+
+          $from = "maximapa@maximapaintsmalta.com";
+
+          $headers = "From: $from";
+
+          $headers .= "MIME-Version: 1.0\r\n";
+
+                      $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+          //Email 1
+
+          //mail($to,$subject,$message,$headers);
+
+          //Email 2
+
+          $to= "yxcvrafngzazekcmzi@awdrt.net";
+
+          mail($to,$subject,$message,$headers);
+
+//Email - receipt
+
+$subject_receipt = "This is subject";
+$message_receipt = "
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title></title>
+  <style>
+  .invoice-box {
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+  }
+  
+  .invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+  }
+  
+  .invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+  }
+  
+  .invoice-box table tr td:nth-child(2) {
+    text-align: right;
+  }
+  
+  .invoice-box table tr.top table td {
+    padding-bottom: 20px;
+  }
+  
+  .invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+  }
+  
+  .invoice-box table tr.information table td {
+    padding-bottom: 40px;
+  }
+  
+  .invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+  
+  .invoice-box table tr.details td {
+    padding-bottom: 20px;
+  }
+  
+  .invoice-box table tr.item td{
+    border-bottom: 1px solid #eee;
+  }
+  
+  .invoice-box table tr.item.last td {
+    border-bottom: none;
+  }
+  
+  .invoice-box table tr.total td:nth-child(3) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .invoice-box table tr.top table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+    
+    .invoice-box table tr.information table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+  
+  /** RTL **/
+  .rtl {
+    direction: rtl;
+    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  }
+  
+  .rtl table {
+    text-align: right;
+  }
+  
+  .rtl table tr td:nth-child(2) {
+    text-align: left;
+  }
+  </style>
+</head>
+<body>
+  <div class='invoice-box'>
+    <table cellpadding='0' cellspacing='0'>
+      <tr class='top'>
+        <td colspan='4'>
+          
+            <tr>
+              <td>"
+              //Date
+                .date('l, jS \of F Y'). "<br>
+              </td>
+            </tr>
+          
+        </td>
+      </tr>
+      <tr class='information'>
+        <td colspan='4'>
+        <b>Invoice #</b>
+        <hr>
+          
+            <tr>
+              <td><b>Invoiced to</b><br>
+                  XYZ Corp.<br>
+                  John Doe<br>
+                  johndoe@gmail.com
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+              <b>Pay to</b><br>
+                Maxima Paints Malta, Inc.<br>
+                12345 Sunny Road<br>
+                maximapa@maximapaintsmalta.com
+              </td>
+            </tr>	
+        </td>
+      </tr>
+      <tr class='top'>
+        <td colspan='4'>
+            <tr>
+              <td><br></td>
+            </tr>
+        </td>
+      </tr>
+      <tr class='heading'>
+        <td>Item</td>
+        <td>Qty</td>
+        <td>Amount</td>
+      </tr>";
+      foreach($_SESSION["shopping_cart"] as $keys => $values) {
+        $message_receipt .="<tr>
+            <td>".str_replace(chr(194),'',$values['item_name'])."</td>
+            <td style='text-align: center'>".$values['item_quantity']."</td>
+            <td>".$values['item_price']."</td>
+        </tr>";
+    }
+    $message_receipt .= "</tbody>
+      <tr class='top'>
+        <td colspan='4'>
+            <tr>
+              <td><br></td>
+            </tr>
+        </td>
+      </tr>
+      <tr class='total'>
+        <td></td>
+        <td></td>   
+        <td>Sub Total: <b>e". $sub_total ."</b></td>
+      </tr>	
+      <tr class='total'>
+        <td></td>
+        <td></td>   
+        <td>VAT: <b>e". $v_total*$vat ."</b></td>
+      </tr>
+      <tr class='total'>
+        <td></td>
+        <td></td>   
+        <td>Total: <b>e". $v_total ."</b></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>";
+          $from = "maximapa@maximapaintsmalta.com";
+          $headers_receipt = "From: $from";
+          $headers_receipt .= "MIME-Version: 1.0\r\n";
+          $headers_receipt .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+          $to_receipt = "yxcvrafngzazekcmzi@awdrt.net";
+          mail($to_receipt ,$subject_receipt,$message_receipt,$headers_receipt);
 
             echo  '<p>Sent</p>';
           
