@@ -9,7 +9,6 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="navbar.css">  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 </head>
 
 <body>
@@ -47,9 +46,7 @@
           endif; 
         ?>
       </div>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>  
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>  
   </div>
 
 
