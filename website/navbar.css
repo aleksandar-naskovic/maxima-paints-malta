@@ -53,7 +53,6 @@ Navbar styles
     
     .menu__link{
       padding: 2rem 1.5rem;
-    
       font-weight: 700;
       color: #fff;
       text-decoration: none;
@@ -115,6 +114,10 @@ Navbar styles
   width: 100%;
   display: inline-block;
 }
+#menu_buttons{
+  display: inline-block;
+  float: right;
+}
 
 .logo_img{
   width: 90px;
@@ -146,36 +149,62 @@ float: right;
 .logo_links:hover{
   background-color: gainsboro;
 }
+.logo a.icon {
+  display: none;
+}
 /*
 RESPONSIVE
 */
 
 @media (max-width: 800px) {
   .logo_img{
-    width: 70px;
-    height: 35px;
-    padding-left: 15px;
+    width: 75px;
+    height: 40px;
   }
- 
-  .logo_links{
-    text-align: center;
-    width: 100px;
-    margin: 5px;
-    margin-left: 10px;
-    padding: 5px 20px;
-    float: left;
-}
+  
+  .logo {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .logo #menu_buttons {
+    display: none;
+  }
+  
+   .logo_links {
+    width: 100%;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    margin: none;
+    border: none;
+    border-radius: 0px;
+    border-top: 1px solid orangered;
+    float: right;
+  }
+  
+  .logo a.icon {
+    display: block;
+    padding: 18px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #ff6804;
+  }
+  
+  .logo a .logo_links:hover {
+    background-color: #ddd;
+  }
+
   .logo_title{
     padding: 5rem 5.5rem;
     font-weight: 1000;
-    font-size: 41px;
+    font-size: 40px;
     margin: auto;
     padding: 10px 18px;
   }
 
-.logo{
-  text-align: center;
-}
 }
 
 
@@ -183,28 +212,50 @@ RESPONSIVE
   .logo_img{
     width: 60px;
     height: 30px;
-    padding: 0 25px;
   }
- 
-  .logo_links{
-    text-align: center;
-    width: 90px;
-    margin: 5px;
-    margin-left: 10px;
-    padding: 5px 10px;
-    display: inline-block;
-    float: left;
-}
+  
+  .logo {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .logo #menu_buttons {
+    display: none;
+  }
+  
+   .logo_links {
+    width: 100%;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    margin: none;
+    border: none;
+    border-radius: 0px;
+    border-top: 1px solid orangered;
+    float: right;
+  }
+  
+  .logo a.icon {
+    display: block;
+    padding: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #ff6804;
+  }
+  
+  .logo a .logo_links:hover {
+    background-color: #ddd;
+  }
+
   .logo_title{
     padding: 5rem 5.5rem;
     font-weight: 1000;
-    font-size: 30px;
+    font-size: 25px;
     margin: auto;
-    padding: 10px;
+    padding: 10px 18px;
   }
 
-.logo{
-  text-align: center;
-}
 }
 
