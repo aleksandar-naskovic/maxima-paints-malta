@@ -7,7 +7,8 @@
 ?>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="navbar.css">   
+  <link rel="stylesheet" type="text/css" href="navbar.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 </head>
 
 <body>
@@ -18,31 +19,36 @@
     <a class="logo_title" href="../website/home.php">Maxima Paints Malta</a>
       <!-- IF USER IS ADMIN -->
       <!-- LOG IN-->
-      <?php if (!isset($_SESSION['username'])): ?>
-        <a class='logo_links'  href="../1_log_in/login.php">Log in</a>
-      <?php endif ?>
+      <div id="menu_buttons">
+        <?php if (!isset($_SESSION['username'])): ?>
+          <a class='logo_links'  href="../1_log_in/login.php">Log in</a>
+        <?php endif ?>
 
-      <!-- LOG OUT -->
-      <?php 
-        if (isset($_SESSION['username'])) :
-      ?>
-          <a class='logo_links' href="home.php?logout='1'">Logout</a>
-          <a class='logo_links' href="my_account.php">My account</a>
-      <?php 
-        endif;
-        //
-        if (isset($_SESSION['username'])) :
-          //
-          $s_User->LoadUser("username", $_SESSION['username']);
-          //
-          if ($s_User->user_category == 'admin') : 
-      ?>
-            <a class='logo_links' href="../website/admin_index.php">Admin page</a>
-            <a class='logo_links' href="../website/all_items.php">All items</a>
-      <?php
+        <!-- LOG OUT -->
+        <?php 
+          if (isset($_SESSION['username'])) :
+        ?>
+            <a class='logo_links' href="home.php?logout='1'">Logout</a>
+            <a class='logo_links' href="my_account.php">My account</a>
+        <?php 
           endif;
-        endif; 
-      ?>
+          //
+          if (isset($_SESSION['username'])) :
+            //
+            $s_User->LoadUser("username", $_SESSION['username']);
+            //
+            if ($s_User->user_category == 'admin') : 
+        ?>
+              <a class='logo_links' href="../website/admin_index.php">Admin page</a>
+              <a class='logo_links' href="../website/all_items.php">All items</a>
+        <?php
+            endif;
+          endif; 
+        ?>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>  
   </div>
 
 
@@ -91,6 +97,15 @@
   </nav>
 </body>
   
-  
+<script>
+function myFunction() {
+  var x = document.getElementById("menu_buttons");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
   
   
