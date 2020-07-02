@@ -354,7 +354,7 @@ $message = "
               <b>Pay to</b><br>
                 Maxima Paints Malta, Inc.<br>
                 12345 Sunny Road<br>
-                maximapa@maximapaintsmalta.com
+                aleksandar@maximapaintsmalta.com
               </td>
             </tr>	
         </td>
@@ -408,7 +408,7 @@ $message = "
 </body>
 </html>";
 
-          $from = "maximapa@maximapaintsmalta.com";
+          $from = "aleksandar@maximapaintsmalta.com";
 
           $headers = "From: $from";
 
@@ -561,7 +561,7 @@ $message_receipt = "
               <b>Pay to</b><br>
                 Maxima Paints Malta, Inc.<br>
                 12345 Sunny Road<br>
-                maximapa@maximapaintsmalta.com
+                aleksandar@maximapaintsmalta.com
               </td>
             </tr>	
         </td>
@@ -612,7 +612,7 @@ $message_receipt = "
   </div>
 </body>
 </html>";
-          $from = "maximapa@maximapaintsmalta.com";
+          $from = "aleksandar@maximapaintsmalta.com";
           $headers_receipt = "From: $from";
           $headers_receipt .= "MIME-Version: 1.0\r\n";
           $headers_receipt .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
